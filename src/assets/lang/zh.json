@@ -1,0 +1,81 @@
+{
+  "const": {
+    "expand": "点我展开",
+    "timerCode": "计时码"
+  },
+  "enter": {
+    "additionalSetting": "额外设置(可选)",
+    "bookmark": {
+      "desc": "使用常用计时码的方法：先展开，然后选择所需，复制其计时码填入下方即可。<br/>提交常用计时码收录的问卷已经暂时停止收集，您可以转而申请离线版。",
+      "title": "常用计时码"
+    },
+    "enter": {
+      "title": "进入计时器"
+    },
+    "form": {
+      "additional": "附加功能设置",
+      "backgroud": "背景和颜色设置",
+      "new": "新",
+      "open": "立即打开",
+      "teamAndName": "队伍与辩题设置"
+    },
+    "reachUs": "遇到了问题吗？",
+    "timerCodeWarn": "请点击↑输入计时码",
+    "updateLog": "更新日志"
+  },
+  "footbar": {
+    "title": "Online辩论-辩之竹辩论计时器"
+  },
+  "navbar": {
+    "blog": "看看开发者的博客",
+    "feedback": "反馈bug/提出建议",
+    "header": "Online-辩之竹计时器",
+    "navs": {
+      "enter": "【进入计时器】",
+      "gen": "【生成计时码】"
+    },
+    "qqGroup": "加入Online辩论·辩论咨讯群"
+  },
+  "timer": {
+    "ad": {
+      "1l": "Online辩论 · 辩之竹计时器",
+      "2l": "微信公众号搜索：Online辩论",
+      "3l": "timer.bianlun.online"
+    },
+    "affirm": "正方",
+    "cate": {
+      "bitalk": "对辩",
+      "blank": "空白",
+      "custom": "自定义",
+      "free": "自由",
+      "question": "质询",
+      "statement": "陈词"
+    },
+    "neg": "反方",
+    "pos": {
+      "all": "全体/任一",
+      "n1": "一辩",
+      "n2": "二辩",
+      "n3": "三辩",
+      "n4": "四辩",
+      "undefined": "未指定"
+    },
+    "side": {
+      "affirm": "正方"
+    },
+    "ui": {
+      "aff": "正",
+      "neg": "反",
+      "pause": "暂停",
+      "reset": "重置时间",
+      "return": "返回配置页",
+      "start": "开始",
+      "stopBoth": "停止双方计时",
+      "switch": "切换",
+      "timer": {
+        "aff": "正方时间",
+        "neg": "反方时间"
+      }
+    }
+  }
+}

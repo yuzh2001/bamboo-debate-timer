@@ -1,0 +1,81 @@
+{
+  "const": {
+    "expand": "Click to Expand",
+    "timerCode": "Timer Code"
+  },
+  "enter": {
+    "additionalSetting": "Additional Settings(Optional)",
+    "bookmark": {
+      "desc": "How to use regular codes?<br> First Expand the panel. Then choose the one you need and copy to the bottom.",
+      "title": "Regular Codes"
+    },
+    "enter": {
+      "title": "Enter Timer"
+    },
+    "form": {
+      "additional": "Additional",
+      "backgroud": "Background Image / Color",
+      "new": "NEW",
+      "open": "Open Timer",
+      "teamAndName": "Teams / Motions"
+    },
+    "reachUs": "Is there A BUG??",
+    "timerCodeWarn": "Please click ↑to input the timer code",
+    "updateLog": "Update Log"
+  },
+  "footbar": {
+    "title": "Online-Bamboo Debate Timer"
+  },
+  "navbar": {
+    "blog": "Dev's Blog",
+    "feedback": "Feedback",
+    "header": "Online-Debate Timer",
+    "navs": {
+      "enter": "【Enter Timer】",
+      "gen": "【Generate Timer】"
+    },
+    "qqGroup": "Join Online's QQ Group"
+  },
+  "timer": {
+    "ad": {
+      "1l": "Online Debate · Bamboo Timer",
+      "2l": "timer.bianlun.online",
+      "3l": " "
+    },
+    "affirm": "Aff.",
+    "cate": {
+      "bitalk": "Biquestion",
+      "blank": "Empty",
+      "custom": "Custom",
+      "free": "Free",
+      "question": "Question",
+      "statement": "Statement"
+    },
+    "neg": "Neg.",
+    "pos": {
+      "all": "All/Any",
+      "n1": "1 ",
+      "n2": "2 ",
+      "n3": "3 ",
+      "n4": "4 ",
+      "undefined": "Undefined"
+    },
+    "side": {
+      "affirm": "Affirm."
+    },
+    "ui": {
+      "aff": "A",
+      "neg": "N",
+      "pause": "Pause",
+      "reset": "ResetTimer",
+      "return": "Homepage",
+      "start": "Start",
+      "stopBoth": "Stop All Timer",
+      "switch": "Switch",
+      "timer": {
+        "aff": "Aff. Timer",
+        "neg": "Neg. Timer"
+      }
+    }
+  }
+}

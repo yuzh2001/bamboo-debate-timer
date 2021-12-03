@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'font1';
+    src: url('https://cdn.puluter.cn/bamboo-cqu2019_font1.otf');
+}
+@font-face {
+    font-family: 'Digiface';
+    src: url('https://cdn.puluter.cn/font2.ttf');
+}
+.support-webp .mainWrapper {
+    background: url(https://cdn.puluter.cn/background.webp) no-repeat;
+    background-size: 100%;
+}
+.no-support-webp .mainWrapper {
+    background: url(https://cdn.puluter.cn/bamboo-cqu2019_background.png) no-repeat;
+    background-size: 100%;
+}

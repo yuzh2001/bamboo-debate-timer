@@ -1,0 +1,194 @@
+/*hello*/
+.controllerGroup {
+    margin: auto;
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: calc(100vh / 1080 * 900);
+    justify-content: center;
+}
+
+* {
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.copyright {
+    position: fixed;
+    top: calc(96vh - calc(100vh / 1080 * 75));
+    margin: auto;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-size: calc(100vh / 1080 * 20);
+    opacity: 70%;
+}
+
+.mainWrapper {
+    height: 98vh;
+    width: 178vh;
+    z-index: -5;
+    box-shadow: 3px 4px 10px 1px black;
+    background-size: 100%;
+    margin: auto;
+}
+
+.body1 {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+.twoLine {
+    font-size: calc(100vh / 1080 * 35) !important;
+}
+
+.teamName {
+    margin-top: calc(100vh / 1080 * 43) !important;
+    margin-bottom: calc(100vh / 1080 * 43) !important;
+    font-size: calc(100vh / 1080 * 50);
+    position: fixed;
+    top: calc(100vh / 1080 * 63);
+    color: white;
+    font-family: 'font1';
+    max-width: calc(100vh / 1080 * 690);
+    display: flex;
+    justify-content: space-between;
+}
+
+.teamNameC {
+    left: calc(100vh / 1080 * 213);
+}
+
+.teamNameCC {
+    right: calc(100vh / 1080 * 213);
+}
+
+.down {
+    margin-top: calc(100vh / 1080 * 40) !important;
+    margin-bottom: calc(100vh / 1080 * 40) !important;
+    font-size: calc(100vh / 1080 * 40);
+    position: fixed;
+    top: calc(100vh / 1080 * 163);
+    color: lightcyan;
+    font-family: 'font1';
+    display: flex;
+    justify-content: space-between;
+}
+
+.downC {
+    left: calc(100vh / 1080 * 213);
+}
+
+.downCC {
+    right: calc(100vh / 1080 * 213);
+}
+
+.titleOfTimer {
+    margin-bottom: calc(100vh / 1080 * 80) !important;
+    /* position: fixed; */
+    margin-top: 24.6vh;
+    color: #28769b;
+    font-family: 'font1';
+    font-size: calc(100vh / 1080 * 80);
+    text-align: center;
+}
+
+.txt {
+    display: flex;
+    flex-direction: column;
+}
+
+.status {
+    margin-bottom: calc(100vh / 1080 * 80) !important;
+    color: white;
+    font-family: 'font1';
+    font-size: calc(100vh / 1080 * 80);
+    margin-top: calc(100vh / 1080 * (-60));
+    text-align: center;
+}
+
+.emptyRound {
+    color: white;
+    font-family: 'font1';
+    font-size: calc(100vh / 1080 * 130);
+    margin-top: calc(100vh / 1080 * (50));
+    text-align: center;
+}
+
+.bigTime {
+    margin-top: calc(100vh / 1080 * 250) !important;
+    margin-bottom: calc(100vh / 1080 * 250) !important;
+    top: calc(100vh / 1080 * 238);
+    color: white;
+    font-family: 'Digiface';
+    font-size: calc(100vh / 1080 * 250);
+    position: fixed;
+    text-align: center;
+    width: 178vh;
+}
+
+
+.position {
+    position: relative;
+    top: -200px;
+    left: 120px;
+    font-size: 20px;
+}
+
+.timeSet {
+    display: flex;
+    margin: calc(100vh / 1080 * 230) auto auto auto;
+    text-align: center;
+    justify-content: space-between;
+    width: 178vh;
+}
+
+.CTime {
+    margin-top: calc(100vh / 1080 * 250) !important;
+    margin-bottom: calc(100vh / 1080 * 250) !important;
+    color: rgb(191, 39, 39);
+    font-family: 'Digiface';
+    font-size: calc(100vh / 1080 * 250);
+    text-align: center;
+    width: 88vh;
+}
+
+.sideTxt {
+    margin-top: calc(100vh / 1080 * -280);
+    font-size: calc(100vh / 1080 * 50) !important;
+    position: absolute;
+    font-family: 'font1';
+}
+
+.sideC {
+    color: rgb(191, 39, 39);
+    width: 88vh;
+}
+
+.sideCC {
+    color: rgb(0, 122, 156);
+    width: 88vh;
+}
+
+.CCTime {
+    margin-top: calc(100vh / 1080 * 250) !important;
+    margin-bottom: calc(100vh / 1080 * 250) !important;
+    color: rgb(0, 122, 156);
+    font-family: 'Digiface';
+    font-size: calc(100vh / 1080 * 250);
+    text-align: center;
+    width: 88vh;
+}
+
+.danger-time-big {
+    color: rgb(191, 39, 39);
+}
+
+.danger-time-small {
+    color: yellowgreen;
+}

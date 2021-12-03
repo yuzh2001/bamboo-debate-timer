@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="https://cdn.puluter.cn/bamboo-cqu2019_logo1.png"
+    />
+    <link href="./font/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://s1.pstatp.com/cdn/expire-1-M/font-awesome/5.8.1/css/all.css" type="text/css" rel="stylesheet"/>
+    <title>Online·辩之竹计时器</title>
+    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//matomo.a.puluter.cn/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d69daabb517ce51284de1aef1aa92382";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <script type="text/javascript">(function (w) {
+      w.frontjsConfig = {
+        token: "c06ac299111933634d1fb0320c838571",
+        behaviour: 15,
+        captureConsoleLog: true,
+        trustVendor: true,
+        ignoreVendor: true,
+        optimisedForSPA: true,
+        useHistory: true,
+        routeMapping: [["/show/(.*?)", "/show"], ["/gen", "/gen"], ["/", "/home"]],
+        exclude: ["sentry.io"],
+        FPSThreshold: 10
+      };
+      w.frontjsTmpData = {r: [], e: [], l: []};
+      w.frontjsTmpCollector = function (ev) {
+        (ev.message ? window.frontjsTmpData.e : window.frontjsTmpData.r).push([new Date().getTime(), ev])
+      };
+      w.FrontJS = {
+        addEventListener: function (t, f) {
+          w.frontjsTmpData.l.push([t, f]);
+          return f;
+        }, removeEventListener: function (t, f) {
+          for (var i = 0; i < w.frontjsTmpData.l.length; i++) {
+            t === w.frontjsTmpData.l[i][0] && f === w.frontjsTmpData.l[i][1] && w.frontjsTmpData.l.splice(i, 1);
+          }
+          return f;
+        }
+      };
+      w.document.addEventListener("error", w.frontjsTmpCollector, true);
+      w.addEventListener("error", w.frontjsTmpCollector, true);
+      w.addEventListener("load", function () {
+        var n = w.document.createElement("script");
+        n.src = "https://frontjs-static.pgyer.com/dist/current/frontjs.web.min.js";
+        w.document.body.appendChild(n);
+      }, true);
+    })(window);</script>
+<body>
+<noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+.mainWrapper {
+    background: url('./img/background.png') no-repeat;
+    background-size: 100%;
+}
+
+@font-face {
+    font-family: 'font1';
+    src: url('./fonts/bamboo-cqu2019_font1.otf');
+}
+
+@font-face {
+    font-family: 'Digiface';
+    src: url('./fonts/font2.ttf');
+}
