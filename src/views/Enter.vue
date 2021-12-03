@@ -65,6 +65,14 @@
                      color='red' class="">新功能 {{app_ver}} 版本</v-badge>
           </v-card-title>
           <v-card-text class="text-left pt-5 pl-10">
+              <h2> [1204] 开源</h2>
+              自从2020年12月4日写下第一行代码以来，辩之竹已经正正好好走过了一年。在这样一个特殊的时间节点
+            我们将辩之竹开源，希望对辩论有兴趣的同学都可以参与到这款计时器的开发中。Online辩论辩之竹计时器的第一年
+            ，感谢大家的使用。愿我们一起继续前行！<br/>
+            或许来点个star？
+            <a href="https://github.com/pkmq24/bamboo-debate-timer">https://github.com/pkmq24/bamboo-debate-timer</a>
+            <img src="https://img.shields.io/github/stars/pkmq24/bamboo-debate-timer.svg" alt="">
+            <v-divider class="mt-2 mb-2" />
               <h2> [1203] <strong><u>全自定义的</u></strong>环节</h2>
               【测试】现在可以在生成计时器页面的环节卡中，选择环节类别为“自定义”，然后自由输入环节名、选择计时器数量、选择时间。<br/>
               使用这个功能，你可以用辩之竹做任何一个活动的计时器，它将不局限在辩论中。<br/>
