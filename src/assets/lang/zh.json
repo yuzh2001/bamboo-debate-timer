@@ -114,7 +114,9 @@
     },
     "ui": {
       "aff": "正",
+      "closeFull": "退出全屏",
       "neg": "反",
+      "openFull": "进入全屏",
       "pause": "暂停",
       "reset": "重置时间",
       "return": "返回配置页",

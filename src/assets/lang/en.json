@@ -101,7 +101,9 @@
     },
     "ui": {
       "aff": "A",
+      "closeFull": "Exit Fullscreen",
       "neg": "N",
+      "openFull": "Fullscreen",
       "pause": "Pause",
       "reset": "ResetTimer",
       "return": "Homepage",

@@ -146,6 +146,17 @@
             {{$t('timer.ui.return')}}
           </button>
         </div>
+        <div class="btn-group mr-2" role="group"
+             aria-label="Second group">
+          <button
+            type="button"
+            @click="toggleFull"
+            ref="lastBtn"
+            style="--animate-duration:1.5s;"
+            class="btn btn-success btn-lg"
+          >{{isFullscreen?$t('timer.ui.closeFull'):$t('timer.ui.openFull')}}
+          </button>
+        </div>
         <div class="btn-group" role="group" aria-label="Third group">
           <button
             type="button"
@@ -212,7 +223,7 @@
           <v-btn
             color="primary"
             text
-            @click="dialog = false"
+            @click="closeDialog"
           >
             我了解了
           </v-btn>
@@ -232,10 +243,16 @@ import { Howl } from 'howler';
 import VueI18n from 'vue-i18n';
 import Logger from 'js-logger';
 import Vue from 'vue';
+import { useFullscreen } from '@vueuse/core';
+
+import 'animate.css';
+
 // eslint-disable-next-line import/extensions
 import offlineConfig from '@/libs/offlineConfig.js';
 import zh from '@/assets/lang/zh.json';
 import en from '@/assets/lang/en.json';
+
+const { toggle } = useFullscreen();
 
 Logger.useDefaults();
 window.addEventListener('DOMContentLoaded', () => {
@@ -1107,6 +1124,19 @@ const documentReady = () => {
 
 export default {
   name: 'Show',
+  setup() {
+    const { isFullscreen } = useFullscreen();
+    return { isFullscreen };
+  },
+  methods: {
+    toggleFull() {
+      toggle();
+    },
+    closeDialog() {
+      this.dialog = false;
+      this.$refs.lastBtn.className = 'btn btn-success btn-lg animate__animated animate__bounce animate__repeat-3';
+    },
+  },
   data() {
     return {
       dialog: true,

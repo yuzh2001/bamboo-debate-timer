@@ -1,6 +1,10 @@
-export const nowVersion = 'V1.26.211203';
-export const updateTime = '2021年12月3日';
-export const updateLogs = `# V1.26.211203
+export const nowVersion = 'V1.27.211214';
+export const updateTime = '2021年12月14日';
+export const updateLogs = `# V1.27.211214
+- 一键全屏
+- 增加英化完成度
+
+# V1.26.211203
 - 提高网页性能，加快加载
 - 【测试性质】现在可以选择环节为“自定义”自由输入环节名、选择计时器数量、选择时间
 

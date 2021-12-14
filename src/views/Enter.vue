@@ -62,41 +62,73 @@
             </v-icon
             >
             <v-badge :content="$t('enter.form.new')"
-                     color='red' class="">新功能 {{app_ver}} 版本</v-badge>
+                     color='red' class="">新功能 {{ app_ver }} 版本
+            </v-badge>
           </v-card-title>
-          <v-card-text class="text-left pt-5 pl-10">
-              <h2> [1204] 开源</h2>
-              自从2020年12月4日写下第一行代码以来，辩之竹已经正正好好走过了一年。在这样一个特殊的时间节点
-            我们将辩之竹开源，希望对辩论有兴趣的同学都可以参与到这款计时器的开发中。Online辩论辩之竹计时器的第一年
-            ，感谢大家的使用。愿我们一起继续前行！<br/>
-            或许来点个star？
-            <a href="https://github.com/pkmq24/bamboo-debate-timer">https://github.com/pkmq24/bamboo-debate-timer</a>
-            <img src="https://img.shields.io/github/stars/pkmq24/bamboo-debate-timer.svg" alt="">
-            <v-divider class="mt-2 mb-2" />
-              <h2> [1203] <strong><u>全自定义的</u></strong>环节</h2>
-              【测试】现在可以在生成计时器页面的环节卡中，选择环节类别为“自定义”，然后自由输入环节名、选择计时器数量、选择时间。<br/>
-              使用这个功能，你可以用辩之竹做任何一个活动的计时器，它将不局限在辩论中。<br/>
-              由于是测试性质，如果出现bug，烦请加群反馈~
-              <v-divider class="mt-2 mb-2" />
-              <h2>[1115] 我们加入了 <strong><u>英化</u></strong>！</h2><br>
-              如果您有打英文辩论的需求，可以在右侧【附加功能设置】中打开”使用英文界面“开关，您便可以使用
-            英文版本的辩之竹计时器啦~
-              <v-divider class="mt-2 mb-2"/>
-              <h2>[1113] 总是记不住计时器的链接？我们启用了 <strong><u>短域名</u></strong>！</h2><br>
-              您今后可以使用
-              <v-chip href="http://debate.icu" color="error" label><h3>debate.icu</h3></v-chip>
-              来访问本站。(大家要注意身体哦)
-              <v-divider class="mt-2 mb-2"/>
-              <h2>[1113] 为<u>大陆外</u>的朋友提供更稳定的服务！</h2><br>
-              如果您打开本计时器时的ip是大陆外ip，我们会引导您转向海外服务器。今后马来西亚等非大陆的辩手在访问计时器时会更加稳定。
-            您也可以手动点击跳转（就是计时器链接前面加一个asia）<br>
-            <v-chip href="http://asia.timer.bianlun.online" color="error" label><h3>asia.timer.bianlun.online</h3></v-chip>
-              <v-divider class="mt-2 mb-2"/>
-              <h2>[0912] 离线版软件</h2><br>
-              ①无需配置、保证可以稳定运行<br/>
-              ②可以在断网环境下使用，适合报告厅等场景<br/>
-              有需要的可以加入QQ群992868670申请
-              <br/>
+          <v-card-text class="text-left pt-5">
+            <v-expansion-panels>
+              <v-expansion-panel>
+                <v-expansion-panel-header>[1214] 全屏</v-expansion-panel-header>
+                <v-expansion-panel-content>
+                  加入一键全屏（进入计时器可见）
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+              <v-expansion-panel>
+                <v-expansion-panel-header>[1204] 开源</v-expansion-panel-header>
+                <v-expansion-panel-content>自从2020年12月4日写下第一行代码以来，辩之竹已经正正好好走过了一年。在这样一个特殊的时间节点
+                  我们将辩之竹开源，希望对辩论有兴趣的同学都可以参与到这款计时器的开发中。Online辩论辩之竹计时器的第一年
+                  ，感谢大家的使用。愿我们一起继续前行！<br/>
+                  或许来点个star？
+                  <a
+                    href="https://github.com/pkmq24/bamboo-debate-timer">https://github.com/pkmq24/bamboo-debate-timer</a>
+                  <img src="https://img.shields.io/github/stars/pkmq24/bamboo-debate-timer.svg" alt="">
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+              <v-expansion-panel>
+                <v-expansion-panel-header>
+                  [1203] 全自定义的环节
+                </v-expansion-panel-header>
+                <v-expansion-panel-content>
+                  【测试】现在可以在生成计时器页面的环节卡中，选择环节类别为“自定义”，然后自由输入环节名、选择计时器数量、选择时间。<br/>
+                  使用这个功能，你可以用辩之竹做任何一个活动的计时器，它将不局限在辩论中。<br/>
+                  由于是测试性质，如果出现bug，烦请加群反馈~
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+              <v-expansion-panel>
+                <v-expansion-panel-header>
+                  [1115] 多语言支持
+                </v-expansion-panel-header>
+                <v-expansion-panel-content>如果您有打英文辩论的需求，可以在右侧【附加功能设置】中打开”使用英文界面“开关，您便可以使用
+                  英文版本的辩之竹计时器啦~
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+              <v-expansion-panel>
+                <v-expansion-panel-header>
+                  [1113] 短域名&nbsp; <div class="red--text">debate.icu</div>
+                </v-expansion-panel-header>
+                <v-expansion-panel-content>您今后可以使用
+                  <v-chip href="http://debate.icu" color="error" label><h3>debate.icu</h3></v-chip>
+                  来访问本站。(大家要注意身体哦)
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+              <v-expansion-panel>
+                <v-expansion-panel-header>
+                  [1113] 海外服务器</v-expansion-panel-header>
+                <v-expansion-panel-content>
+                  如果您打开本计时器时的ip是大陆外ip，我们会引导您转向海外服务器。今后马来西亚等非大陆的辩手在访问计时器时会更加稳定。
+                  您也可以手动点击跳转（就是计时器链接前面加一个asia）<br>
+                  <v-chip href="http://asia.timer.bianlun.online" color="error" label><h3>asia.timer.bianlun.online</h3>
+                  </v-chip>
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+              <v-expansion-panel>
+                <v-expansion-panel-header>[0912] 离线版</v-expansion-panel-header>
+                <v-expansion-panel-content>①无需配置、保证可以稳定运行<br/>
+                  ②可以在断网环境下使用，适合报告厅等场景<br/>
+                  有需要的可以加入QQ群992868670申请
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-expansion-panels>
           </v-card-text>
         </v-card>
         <v-card elevation="2" class="leftCard mb-5">
@@ -223,7 +255,8 @@
                     <v-icon dense>
                       fa-angle-down
                     </v-icon>
-                  </template>{{
+                  </template>
+                  {{
                     $t('enter.form.teamAndName')
                   }}
                 </v-expansion-panel-header>
@@ -269,7 +302,8 @@
                   </template>
                   <p style="margin-bottom: 0;margin-top: 2px;">
                     <v-badge :content="$t('enter.form.new')"
-                             color='red'>{{$t('enter.form.additional')}}</v-badge>
+                             color='red'>{{ $t('enter.form.additional') }}
+                    </v-badge>
 
                   </p>
                 </v-expansion-panel-header>
@@ -291,7 +325,8 @@
                     <template v-slot:label>
                       <v-badge content="新" color='red'>使用英文界面</v-badge>
 
-                    </template></v-switch>
+                    </template>
+                  </v-switch>
                   <!-- <p style="margin-bottom: 0;margin-top: 2px;">
                     <v-badge content="新" color='red'>进阶设置</v-badge></p> -->
                   <v-switch
@@ -329,7 +364,9 @@
                     <v-icon dense>
                       fa-angle-down
                     </v-icon>
-                  </template>{{$t('enter.form.backgroud')}}</v-expansion-panel-header>
+                  </template>
+                  {{ $t('enter.form.backgroud') }}
+                </v-expansion-panel-header>
                 <v-divider/>
                 <v-expansion-panel-content>
                   <v-switch
@@ -439,7 +476,7 @@
               block
               @click="computedUrl"
             >
-              {{$t('enter.form.open')}}
+              {{ $t('enter.form.open') }}
             </v-btn>
             <v-spacer></v-spacer>
           </v-card-actions>

@@ -15,9 +15,20 @@
     "postuninstall": "electron-builder install-app-deps"
   },
   "main": "background.js",
+  "peerDependencies": {
+    "vue": "^2.6.11",
+    "@vue/composition-api": "^1.4.1"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@mdi/font": "^6.5.95",
+    "@vue/composition-api": "^1.4.1",
     "@vueuse/core": "^7.3.0",
+    "animate.css": "^4.1.1",
     "axios": "^0.21.0",
     "babel-plugin-js-logger": "^1.0.17",
     "core-js": "^3.6.5",
@@ -33,7 +44,6 @@
     "qs": "^6.9.4",
     "ramda": "^0.27.1",
     "vcolorpicker": "^1.0.3",
-    "vue": "^2.6.11",
     "vue-core-image-upload": "^2.4.13",
     "vue-demi": "^0.12.1",
     "vue-i18n": "^8.25.0",
@@ -45,6 +55,7 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "vue": "^2.6.11",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",

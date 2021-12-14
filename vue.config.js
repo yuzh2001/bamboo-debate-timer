@@ -27,7 +27,15 @@ module.exports = {
   },
   configureWebpack: () => {
     if(process.env.NODE_ENV === 'production' && !process.env.IS_ELECTRON) {
-      return {
+      return {module: {
+          rules: [
+            {
+              test: /\.mjs$/,
+              include: /node_modules/,
+              type: "javascript/auto"
+            },
+          ]
+        },
         plugins: [
           new PrerenderSPAPlugin({
             staticDir: path.join(__dirname, './dist'),
@@ -41,7 +49,15 @@ module.exports = {
 
         ],};
     }else {
-      return {};
+      return {module: {
+          rules: [
+            {
+              test: /\.mjs$/,
+              include: /node_modules/,
+              type: "javascript/auto"
+            },
+          ]
+        }};
     }
   }
 }
