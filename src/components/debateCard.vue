@@ -32,11 +32,11 @@
         <v-spacer></v-spacer>
         <v-btn icon @click="show = !show" v-if="displayDrop" class="mr-3" color="success">
           <v-icon small>fa-edit</v-icon>
-          编辑
+          {{ $t('card.action.edit') }}
         </v-btn>
         <v-btn icon v-if="!displayDrop" @click="doPaste" class="mr-3" color="primary">
           <v-icon small>far fa-clone</v-icon>
-          复制
+          {{ $t('card.action.copy') }}
         </v-btn>
       </v-card-actions>
 
@@ -51,13 +51,13 @@
               item-text="text"
               item-value="value"
               :hide-details="true"
-              label="环节类别"
+              :label="$t('card.str.roundType')"
             />
 
             <v-text-field
               class="mt-3"
               v-model="input.title"
-              label="环节标题"
+              :label="$t('card.str.roundTitle')"
               clearable
               :hide-details="true"
             ></v-text-field>
@@ -65,10 +65,13 @@
             <v-select
               v-if="isCustom"
               v-model="input.isCustomDual"
-              :items="[{text:'单计时器',value:false},{text:'双计时器',value:true}]"
+              :items="[
+                {text:$t('timer.card.singleSide'),value:false},
+                {text: $t('timer.card.dualSide'),value:true}
+                ]"
               item-text="text"
               item-value="value"
-              label="计时器数量"
+              :label="$t('card.str.timerCnt')"
               class="mb-n6 mt-3"
             />
 
@@ -80,7 +83,7 @@
                 item-value="value"
                 :hide-details="true"
                 class="mt-3"
-                label="发起者"
+                :label="$t('card.str.attackSide')"
               />
             </div>
             <div v-if="!isEmpty">
@@ -93,7 +96,7 @@
                   item-value="value"
                   :hide-details="true"
                   class="mt-3"
-                  label="发起者"
+                  :label="$t('card.str.attackSide')"
                 />
 
                 <v-row v-else class="">
@@ -104,7 +107,7 @@
                       item-text="text"
                       item-value="value"
                       :hide-details="true"
-                      label="发起者"
+                      :label="$t('card.str.attackSide')"
                     ></v-select>
                   </v-col>
                   <v-col cols="6">
@@ -114,7 +117,7 @@
                       item-text="text"
                       item-value="value"
                       :hide-details="true"
-                      label="发起的辩手辩位"
+                      :label="$t('card.str.attackPos')"
                     ></v-select>
                   </v-col>
                 </v-row>
@@ -129,7 +132,7 @@
                     item-value="value"
                     disabled
                     :hide-details="true"
-                    label="受攻击方"
+                    :label="$t('card.str.defendSide')"
                   ></v-select>
                 </v-col>
                 <v-col cols="6">
@@ -141,7 +144,7 @@
                     item-text="text"
                     item-value="value"
                     :hide-details="true"
-                    label="受攻击的辩手辩位"
+                    :label="$t('card.str.defendPos')"
                   ></v-select>
                 </v-col>
               </v-row>
@@ -151,7 +154,7 @@
                   <v-text-field
                     class="mt-3"
                     v-model="input.time"
-                    label="时间"
+                    :label="$t('card.str.duration')"
                     suffix="秒"
                     clearable
                     type="number"
@@ -163,7 +166,7 @@
                     <v-text-field
                       class="mt-3"
                       v-model="input.time"
-                      label="正方"
+                      :label="$t('timer.affirm')"
                       suffix="秒"
                       clearable
                       type="number"
@@ -174,7 +177,7 @@
                     <v-text-field
                       class="mt-3"
                       v-model="input.timeCC"
-                      label="反方"
+                      :label="$t('timer.neg')"
                       suffix="秒"
                       clearable
                       type="number"
@@ -186,7 +189,9 @@
 
               <!-- alert -->
               <v-alert v-if="isDual && hasNotInputted && !isCustom" dense outlined type="error">
-                您还未选择<strong>受攻击的辩手辩位</strong>，请您选择！
+                {{ $t('card.hint.selectDefendPos') }}<strong>
+                {{ $t('card.hint.selectDefendPos2') }}</strong>
+                {{ $t('card.hint.selectDefendPos3') }}
               </v-alert>
 
             </div>
@@ -199,7 +204,7 @@
                   <v-icon left>
                     far fa-clone
                   </v-icon>
-                  复制
+                  {{$t('card.action.duplicate')}}
                 </v-btn>
               </v-col>
               <v-col cols="4">
@@ -212,7 +217,7 @@
                   <v-icon left>
                     far fa-trash-alt
                   </v-icon>
-                  删除
+                  {{ $t('card.action.delete') }}
                 </v-btn>
               </v-col>
               <v-col cols="4">
@@ -220,7 +225,7 @@
                   <v-icon left>
                     fa-check
                   </v-icon>
-                  完成
+                  {{ $t('card.action.finish') }}
                 </v-btn>
               </v-col>
             </v-row>
@@ -232,19 +237,19 @@
       <v-dialog v-model="dialog" persistent max-width="300">
         <v-card>
           <v-card-title class="text-center headline">
-            确定要删除吗？
+            {{ $t('card.hint.deleteHint') }}
           </v-card-title>
           <v-card-text class="text-center">
-            确认后该环节将被删除，<br/>此操作不可逆！
+            确认后该环节将被删除，此操作不可逆！
           </v-card-text
           >
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="error" @click="confirmDelete">
-              删除
+              {{$t('card.action.delete')}}
             </v-btn>
             <v-btn color="success" @click="dialog = false">
-              取消
+              {{ $t('card.action.cancel') }}
             </v-btn>
             <v-spacer></v-spacer>
           </v-card-actions>
@@ -305,7 +310,9 @@ export default {
     title: {
       type: String,
       required: DEBUG,
-      default: '开篇立论',
+      default() {
+        return this.$t('timer.card.default.title');
+      },
     },
     attackSide: {
       required: DEBUG,
@@ -346,8 +353,8 @@ export default {
       type: Object,
       default() {
         return {
-          affText: '正方时间',
-          negText: '反方时间',
+          affText: this.$t('timer.card.default.props.affText'),
+          negText: this.$t('timer.card.default.props.negText'),
         };
       },
     },

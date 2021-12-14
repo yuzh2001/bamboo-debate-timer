@@ -1,4 +1,33 @@
 {
+  "app": {
+    "electron": "特供版",
+    "slogan": "Online辩论，为线上辩论生态圈的改善而奋斗！"
+  },
+  "card": {
+    "action": {
+      "cancel": "取消",
+      "delete": "删除",
+      "duplicate": "复制",
+      "edit": "编辑",
+      "finish": "完成"
+    },
+    "hint": {
+      "deleteHint": "确定要删除吗？",
+      "selectDefendPos": "您还未选择",
+      "selectDefendPos2": "受攻击的辩手辩位",
+      "selectDefendPos3": "，请您选择！"
+    },
+    "str": {
+      "attackPos": "发起的辩手辩位",
+      "attackSide": "发起者",
+      "defendPos": "受攻击的辩手辩位",
+      "defendSide": "受攻击方",
+      "duration": "时间",
+      "roundTitle": "环节标题",
+      "roundType": "环节类别",
+      "timerCnt": "计时器数量"
+    }
+  },
   "const": {
     "expand": "点我展开",
     "timerCode": "计时码"
@@ -8,6 +37,12 @@
     "bookmark": {
       "desc": "使用常用计时码的方法：先展开，然后选择所需，复制其计时码填入下方即可。<br/>提交常用计时码收录的问卷已经暂时停止收集，您可以转而申请离线版。",
       "title": "常用计时码"
+    },
+    "codes": {
+      "headers": {
+        "code": "计时码",
+        "name": "赛事名称"
+      }
     },
     "enter": {
       "title": "进入计时器"
@@ -20,6 +55,9 @@
       "teamAndName": "队伍与辩题设置"
     },
     "reachUs": "遇到了问题吗？",
+    "settings": {
+      "watermarkHint": "我们在计时器页面加入了计时器名称与链接的水印，我们希望你能够将其留下，让这款计时器有更多的人能看到并使用。\n      当然，如果你希望让界面更干净，你也完全可以在这里把它关闭。(大型比赛的话其实也建议关闭水印，让计时更纯粹)选择权在你，无论你做什么选择，祝你使用愉快~"
+    },
     "timerCodeWarn": "请点击↑输入计时码",
     "updateLog": "更新日志"
   },
@@ -43,6 +81,17 @@
       "3l": "timer.bianlun.online"
     },
     "affirm": "正方",
+    "card": {
+      "default": {
+        "props": {
+          "affText": "正方时间",
+          "negText": "反方时间"
+        },
+        "title": "开篇立论"
+      },
+      "dualSide": "双计时器",
+      "singleSide": "单计时器"
+    },
     "cate": {
       "bitalk": "对辩",
       "blank": "空白",

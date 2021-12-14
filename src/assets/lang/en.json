@@ -1,4 +1,29 @@
 {
+  "card": {
+    "action": {
+      "cancel": "Cancel",
+      "delete": "Del",
+      "duplicate": "Copy",
+      "edit": "Edit",
+      "finish": "Finish"
+    },
+    "hint": {
+      "deleteHint": "Delete Confirm",
+      "selectDefendPos": "You haven't chosen the ",
+      "selectDefendPos2": "defending position",
+      "selectDefendPos3": ", please select one."
+    },
+    "str": {
+      "attackPos": "Attack Pos",
+      "attackSide": "Attack Side",
+      "defendPos": "Defend Position",
+      "defendSide": "Defend Side",
+      "duration": "Duration",
+      "roundTitle": "Round Title",
+      "roundType": "Round Type",
+      "timerCnt": "Timer Count"
+    }
+  },
   "const": {
     "expand": "Click to Expand",
     "timerCode": "Timer Code"
@@ -43,6 +68,17 @@
       "3l": " "
     },
     "affirm": "Aff.",
+    "card": {
+      "default": {
+        "props": {
+          "affText": "Aff. Time",
+          "negText": "Neg. Time"
+        },
+        "title": "Statement"
+      },
+      "dualSide": "Dual TImer",
+      "singleSide": "Single Timer"
+    },
     "cate": {
       "bitalk": "Biquestion",
       "blank": "Empty",

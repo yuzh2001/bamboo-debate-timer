@@ -11,8 +11,8 @@ module.exports = {
     electronBuilder: {
       builderOptions: {
         asar: false,
-        win:{
-          icon:'./public/electron.ico',
+        win: {
+          icon: './public/electron.ico',
           target: [
             {
               target: 'nsis',

@@ -82,7 +82,7 @@
           active-class="primary--text"
         >
           <v-list-item-content>
-            Online辩论，为线上辩论生态圈的改善而奋斗！
+            {{ $t('app.slogan') }}
             <v-img src="https://cdn.puluter.cn/onlinebianlun.jpg"></v-img>
           </v-list-item-content>
         </v-list-item>
@@ -98,7 +98,7 @@
         </v-app-bar-nav-icon>
       <v-toolbar-title>
         {{ $t('footbar.title') }} {{ ver }}
-        <span class="red--text font-weight-bold" v-if="isElectron">特供版</span>
+        <span class="red--text font-weight-bold" v-if="isElectron">{{ $t('app.electron') }}</span>
       </v-toolbar-title>
     </v-app-bar>
 

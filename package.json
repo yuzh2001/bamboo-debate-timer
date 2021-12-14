@@ -17,6 +17,7 @@
   "main": "background.js",
   "dependencies": {
     "@mdi/font": "^6.5.95",
+    "@vueuse/core": "^7.3.0",
     "axios": "^0.21.0",
     "babel-plugin-js-logger": "^1.0.17",
     "core-js": "^3.6.5",
@@ -34,6 +35,7 @@
     "vcolorpicker": "^1.0.3",
     "vue": "^2.6.11",
     "vue-core-image-upload": "^2.4.13",
+    "vue-demi": "^0.12.1",
     "vue-i18n": "^8.25.0",
     "vue-meta-info": "^0.1.7",
     "vue-router": "^3.2.0",

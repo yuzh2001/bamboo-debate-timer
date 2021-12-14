@@ -605,11 +605,11 @@ export default {
       search: '',
       headers: [
         {
-          text: '赛事名称',
+          text: this.$t('enter.codes.headers.name'),
           align: 'start',
           value: 'name',
         },
-        { text: '计时码', value: 'code' },
+        { text: this.$t('enter.codes.headers.code'), value: 'code' },
         // { text: '使用次数', value: 'useTimes' },
       ],
       goodCodes: [
@@ -676,8 +676,7 @@ export default {
       },
       useNotifySound: true,
       code: process.env.IS_ELECTRON ? elecCode : '',
-      watermarkStr: `我们在计时器页面加入了计时器名称与链接的水印，我们希望你能够将其留下，让这款计时器有更多的人能看到并使用。
-      当然，如果你希望让界面更干净，你也完全可以在这里把它关闭。(大型比赛的话其实也建议关闭水印，让计时更纯粹)选择权在你，无论你做什么选择，祝你使用愉快~`,
+      watermarkStr: this.$t('enter.settings.watermarkHint'),
       displayWatermark: true,
     };
   },
