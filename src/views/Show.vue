@@ -1,235 +1,238 @@
 <template>
-  <div class="body1 support-webp"
-       oncontextmenu="return false;"
-       onselectstart="return false"
-       onbeforeunload="checkLeave()">
-    <div class="audio">
-      <link id="cssLink"/>
-      <audio
+  <div class="con" ref = "conn">
 
-        style="display: none; height: 0"
-        id="mic-1"
-        preload="auto"
-        loop="loop"
-      ></audio>
-      <audio
+    <div class="body1 support-webp"
+         oncontextmenu="return false;"
+         onselectstart="return false"
+         onbeforeunload="checkLeave()">
+      <div class="audio">
+        <link id="cssLink"/>
+        <audio
 
-        style="display: none; height: 0"
-        id="mic-2"
-        preload="auto"
-        loop="loop"
-      ></audio>
-      <audio
+          style="display: none; height: 0"
+          id="mic-1"
+          preload="auto"
+          loop="loop"
+        ></audio>
+        <audio
 
-        style="display: none; height: 0"
-        id="mic-3"
-        preload="auto"
-        loop="loop"
-      ></audio>
+          style="display: none; height: 0"
+          id="mic-2"
+          preload="auto"
+          loop="loop"
+        ></audio>
+        <audio
 
-    </div>
-    <div class="" id="custom">
-      选择图片:<input type="file" id="images" accept="image/*"/>
-      <input type="button" value="确认图片" id="changeBack"/>
-    </div>
-    <div class="copyright">{{$t('timer.ad.1l')}}
-      <br/>
-      {{$t('timer.ad.2l')}}
-      <br/>
-      {{$t('timer.ad.3l')}}
-    </div>
-    <div class="mainWrapper" id="main" tabindex="0" style="background-color:rgb(53,73,82);">
-      <p
-        style="font-family: 'Digiface';color: red; position: fixed; bottom: 0;font-size: 30px;"
-        id='load-font'>
-        如果网页这里没有出现弹窗，一片空白，你可以看到这行文字，请先耐心等待几秒钟看看会不会只是网络太卡。<br/>
-        如果等待一段时间仍然没有任何变化，你还是可以看到这行文字，这说明你在使用的浏览器太过于古老，计时器很不幸并不支持它。<br/>
-        你可以做的尝试：<br/>
-        ①如果使用的是国产的浏览器（如搜狗浏览器，QQ浏览器），在网址栏的末尾看看有没有一个IE浏览器的图标，点它一下。（或者百度搜索“XX浏览器 如何开启极速模式”）<br/>
-        ②如果使用的是IE（Internet Explorer），请换成一个现代一些的浏览器，如Chrome，或者QQ浏览器之类的。<br/>
-        <br/>
-        如果你的情况并不满足上述两条，可以加QQ群992868670来反馈。<br/>
-        同时，紧急情况下可以直接加微信：yuzhuohao来反馈。
-      </p>
-      <div class="up">
-        <p class="teamName teamNameC" id="teamName-C"></p>
-        <p class="teamName teamNameCC" id="teamName-CC"></p>
-        <p class="down downC" id="down-C"></p>
-        <p class="down downCC" id="down-CC"></p>
+          style="display: none; height: 0"
+          id="mic-3"
+          preload="auto"
+          loop="loop"
+        ></audio>
+
       </div>
-      <div class="txt">
-        <p class="titleOfTimer" id="title"></p>
-        <p class="status" id="status"></p>
-        <p class="emptyRound" id="emptyRound"></p>
-        <p class="bigTime" id="mainTimer">00 : 00</p>
-        <div class="timeSet" id="freeTimerId" style="position: fixed">
+      <div class="" id="custom">
+        选择图片:<input type="file" id="images" accept="image/*"/>
+        <input type="button" value="确认图片" id="changeBack"/>
+      </div>
+      <div class="copyright">{{$t('timer.ad.1l')}}
+        <br/>
+        {{$t('timer.ad.2l')}}
+        <br/>
+        {{$t('timer.ad.3l')}}
+      </div>
+      <div class="mainWrapper" id="main" tabindex="0" style="background-color:rgb(53,73,82);">
+        <p
+          style="font-family: 'Digiface';color: red; position: fixed; bottom: 0;font-size: 30px;"
+          id='load-font'>
+          如果网页这里没有出现弹窗，一片空白，你可以看到这行文字，请先耐心等待几秒钟看看会不会只是网络太卡。<br/>
+          如果等待一段时间仍然没有任何变化，你还是可以看到这行文字，这说明你在使用的浏览器太过于古老，计时器很不幸并不支持它。<br/>
+          你可以做的尝试：<br/>
+          ①如果使用的是国产的浏览器（如搜狗浏览器，QQ浏览器），在网址栏的末尾看看有没有一个IE浏览器的图标，点它一下。（或者百度搜索“XX浏览器 如何开启极速模式”）<br/>
+          ②如果使用的是IE（Internet Explorer），请换成一个现代一些的浏览器，如Chrome，或者QQ浏览器之类的。<br/>
+          <br/>
+          如果你的情况并不满足上述两条，可以加QQ群992868670来反馈。<br/>
+          同时，紧急情况下可以直接加微信：yuzhuohao来反馈。
+        </p>
+        <div class="up">
+          <p class="teamName teamNameC" id="teamName-C"></p>
+          <p class="teamName teamNameCC" id="teamName-CC"></p>
+          <p class="down downC" id="down-C"></p>
+          <p class="down downCC" id="down-CC"></p>
+        </div>
+        <div class="txt">
+          <p class="titleOfTimer" id="title"></p>
+          <p class="status" id="status"></p>
+          <p class="emptyRound" id="emptyRound"></p>
+          <p class="bigTime" id="mainTimer">00 : 00</p>
+          <div class="timeSet" id="freeTimerId" style="position: fixed">
           <span>
             <p class="CTime" id="CTime">01 : 37</p>
             <p class="sideTxt sideC" id="CTime1">{{$t('timer.ui.timer.aff')}}</p>
           </span>
-          <span>
+            <span>
             <p class="CCTime" id="CCTime">01 : 37</p>
             <p class="sideTxt sideCC" id="CCTime1">{{$t('timer.ui.timer.neg')}}</p>
           </span>
+          </div>
+        </div>
+
+      </div>
+      <div class="controllerGroup">
+        <div
+          class="btn-toolbar"
+          role="toolbar"
+          aria-label="Toolbar with button groups"
+        >
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button
+              type="button"
+              id="prevButton"
+              class="btn btn-light  btn-lg"
+            >
+              ←
+            </button>
+          </div>
+
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button
+              type="button"
+              id="btn-method-start"
+              class="btn btn-success btn-lg"
+            >
+              开始
+            </button>
+          </div>
+          <div class="btn-group mr-2 double-0" da="1" role="group" aria-label="Second group">
+            <button
+              type="button"
+              id="btnc"
+              class="btn btn-success btn-lg"
+            >
+              {{$t('timer.ui.aff')}}
+            </button>
+          </div>
+          <div class="btn-group mr-2 double-1" da="1" role="group" aria-label="Second group">
+            <button
+              type="button"
+              id="btncc"
+              class="btn btn-success btn-lg"
+            >
+              {{$t('timer.ui.neg')}}
+            </button>
+          </div>
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button
+              type="button"
+              id="stopBoth"
+              class="btn btn-danger btn-lg"
+            >
+              {{$t('timer.ui.stopBoth')}}
+            </button>
+          </div>
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button
+              type="button"
+              id="resetTime"
+              class="btn btn-danger btn-lg"
+            >
+              {{$t('timer.ui.reset')}}
+            </button>
+          </div>
+          <div class="btn-group mr-2" role="group"
+               aria-label="Second group" v-if="isElectron">
+            <button
+              type="button"
+              @click="$router.push({path:'/'});"
+              class="btn btn-success btn-lg"
+            >
+              {{$t('timer.ui.return')}}
+            </button>
+          </div>
+          <div class="btn-group mr-2" role="group"
+               aria-label="Second group">
+            <button
+              type="button"
+              @click="toggleFull"
+              ref="lastBtn"
+              style="--animate-duration:1.5s;"
+              class="btn btn-success btn-lg"
+            >{{isFullscreen?$t('timer.ui.closeFull'):$t('timer.ui.openFull')}}
+            </button>
+          </div>
+          <div class="btn-group" role="group" aria-label="Third group">
+            <button
+              type="button"
+              id="stepButton"
+              class="btn btn-light  btn-lg"
+            >
+              →
+            </button>
+          </div>
         </div>
       </div>
-
-    </div>
-    <div class="controllerGroup">
-      <div
-        class="btn-toolbar"
-        role="toolbar"
-        aria-label="Toolbar with button groups"
+      <v-dialog
+        v-model="dialog"
+        width="500"
       >
-        <div class="btn-group mr-2" role="group" aria-label="First group">
-          <button
-            type="button"
-            id="prevButton"
-            class="btn btn-light  btn-lg"
-          >
-            ←
-          </button>
-        </div>
+        <v-card>
+          <v-card-title class="text-h5 primary white--text">
+            使用说明
+          </v-card-title>
 
-        <div class="btn-group mr-2" role="group" aria-label="Second group">
-          <button
-            type="button"
-            id="btn-method-start"
-            class="btn btn-success btn-lg"
-          >
-            开始
-          </button>
-        </div>
-        <div class="btn-group mr-2 double-0" da="1" role="group" aria-label="Second group">
-          <button
-            type="button"
-            id="btnc"
-            class="btn btn-success btn-lg"
-          >
-            {{$t('timer.ui.aff')}}
-          </button>
-        </div>
-        <div class="btn-group mr-2 double-1" da="1" role="group" aria-label="Second group">
-          <button
-            type="button"
-            id="btncc"
-            class="btn btn-success btn-lg"
-          >
-            {{$t('timer.ui.neg')}}
-          </button>
-        </div>
-        <div class="btn-group mr-2" role="group" aria-label="Second group">
-          <button
-            type="button"
-            id="stopBoth"
-            class="btn btn-danger btn-lg"
-          >
-            {{$t('timer.ui.stopBoth')}}
-          </button>
-        </div>
-        <div class="btn-group mr-2" role="group" aria-label="Second group">
-          <button
-            type="button"
-            id="resetTime"
-            class="btn btn-danger btn-lg"
-          >
-            {{$t('timer.ui.reset')}}
-          </button>
-        </div>
-        <div class="btn-group mr-2" role="group"
-             aria-label="Second group" v-if="isElectron">
-          <button
-            type="button"
-            @click="$router.push({path:'/'});"
-            class="btn btn-success btn-lg"
-          >
-            {{$t('timer.ui.return')}}
-          </button>
-        </div>
-        <div class="btn-group mr-2" role="group"
-             aria-label="Second group">
-          <button
-            type="button"
-            @click="toggleFull"
-            ref="lastBtn"
-            style="--animate-duration:1.5s;"
-            class="btn btn-success btn-lg"
-          >{{isFullscreen?$t('timer.ui.closeFull'):$t('timer.ui.openFull')}}
-          </button>
-        </div>
-        <div class="btn-group" role="group" aria-label="Third group">
-          <button
-            type="button"
-            id="stepButton"
-            class="btn btn-light  btn-lg"
-          >
-            →
-          </button>
-        </div>
-      </div>
+          <v-card-text class="text-left">
+            <p>
+              <br>
+              <v-chip
+                class="mb-2"
+                color="pink"
+                label
+                text-color="white"
+              >
+                <v-icon left>
+                  mdi-label
+                </v-icon>
+                键盘操作
+              </v-chip>
+              <br>
+              <v-chip small>←</v-chip><v-chip small>→</v-chip>&nbsp;切换环节 <br>
+              <v-chip small>{{spaceKeyMap}}</v-chip>&nbsp;开始/暂停计时 <br>
+              <v-chip small>回车</v-chip>&nbsp;强制停止双方计时 <br>
+              <v-chip small>R</v-chip>&nbsp;重置时间<br>
+              <v-chip small>小于号&lt;</v-chip> 正方开始，<v-chip small>大于号&gt;</v-chip>
+              反方开始(也可以直接按{{spaceKeyMap}}来一键切换正反方)。<br>
+              <br>
+
+              <v-chip
+                class="my-2"
+                color="pink"
+                label
+                text-color="white"
+              >
+                <v-icon left>
+                  mdi-label
+                </v-icon>
+                展示提示音
+              </v-chip>
+              <br>按下<v-chip small>数字键1</v-chip>展示30秒倒计时提示音，按下<v-chip small>数字键2</v-chip>
+              展示时间到提示音。<br>
+            </p>
+          </v-card-text>
+
+          <v-divider></v-divider>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="primary"
+              text
+              @click="closeDialog"
+            >
+              我了解了
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </div>
-    <v-dialog
-      v-model="dialog"
-      width="500"
-    >
-      <v-card>
-        <v-card-title class="text-h5 primary white--text">
-          使用说明
-        </v-card-title>
-
-        <v-card-text class="text-left">
-          <p>
-            <br>
-            <v-chip
-              class="mb-2"
-              color="pink"
-              label
-              text-color="white"
-            >
-              <v-icon left>
-                mdi-label
-              </v-icon>
-              键盘操作
-            </v-chip>
-            <br>
-            <v-chip small>←</v-chip><v-chip small>→</v-chip>&nbsp;切换环节 <br>
-            <v-chip small>{{spaceKeyMap}}</v-chip>&nbsp;开始/暂停计时 <br>
-            <v-chip small>回车</v-chip>&nbsp;强制停止双方计时 <br>
-            <v-chip small>R</v-chip>&nbsp;重置时间<br>
-            <v-chip small>小于号&lt;</v-chip> 正方开始，<v-chip small>大于号&gt;</v-chip>
-            反方开始(也可以直接按{{spaceKeyMap}}来一键切换正反方)。<br>
-            <br>
-
-            <v-chip
-              class="my-2"
-              color="pink"
-              label
-              text-color="white"
-            >
-              <v-icon left>
-                mdi-label
-              </v-icon>
-              展示提示音
-            </v-chip>
-            <br>按下<v-chip small>数字键1</v-chip>展示30秒倒计时提示音，按下<v-chip small>数字键2</v-chip>
-            展示时间到提示音。<br>
-          </p>
-        </v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            @click="closeDialog"
-          >
-            我了解了
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
   </div>
 </template>
 
@@ -1131,6 +1134,9 @@ export default {
   methods: {
     toggleFull() {
       toggle();
+      if (!this.isFullscreen) {
+        this.$refs.conn.className = 'full con';
+      } else this.$refs.conn.className = 'con';
     },
     closeDialog() {
       this.dialog = false;
@@ -1139,7 +1145,7 @@ export default {
   },
   data() {
     return {
-      dialog: true,
+      dialog: false,
       isElectron: process.env.IS_ELECTRON,
       spaceKeyMap: '空格',
     };
@@ -1200,12 +1206,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   overflow-y: hidden !important;
-  padding: 8px !important;
+  padding: 8px;
 }
-
+.full {
+  .mainWrapper {
+    height: 100vh !important;
+  }
+}
 .v-application {
   line-height: normal !important;
 }

@@ -131,8 +131,9 @@ export default {
     containerStyle() {
       return {
         height: !this.isShowPage ? 'calc(100vh - 124px)' : '100%',
-        'overflow-y': 'auto',
-        padding: this.isShowPage ? '8px' : '12px',
+        'overflow-y': this.isShowPage ? 'hidden' : 'auto',
+        'overflow-x': this.isShowPage ? 'hidden' : 'auto',
+        padding: this.isShowPage ? '0px' : '12px',
       };
     },
   },
