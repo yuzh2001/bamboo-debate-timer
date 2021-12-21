@@ -1145,7 +1145,7 @@ export default {
   },
   data() {
     return {
-      dialog: false,
+      dialog: true,
       isElectron: process.env.IS_ELECTRON,
       spaceKeyMap: '空格',
     };
