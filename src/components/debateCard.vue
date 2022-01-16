@@ -36,7 +36,7 @@
         </v-btn>
         <v-btn icon v-if="!displayDrop" @click="doPaste" class="mr-3" color="primary">
           <v-icon small>far fa-clone</v-icon>
-          {{ $t('card.action.copy') }}
+          {{ $t('card.action.duplicate') }}
         </v-btn>
       </v-card-actions>
 

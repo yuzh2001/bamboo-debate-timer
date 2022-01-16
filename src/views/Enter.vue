@@ -532,9 +532,9 @@
           If you think you may need the English version,
           please reach us by sending an email to pkmq24@qq.com <br>
           <br>
-          你好！我们检测到你的电脑的网络ip位于{{ userIpInfo.cname }}。<br>
+          你好！我们检测到你的电脑的网络ip位于 <span class="red--text">{{ userIpInfo.country }}</span>。<br>
           目前你访问的计时器部署在大陆服务器中，有可能在你使用的地方体验不佳。
-          我们为你提供一个海外节点，请使用：
+          我们为你提供一个部署在新加坡的海外节点，请使用：
           <v-chip link href="http://asia.timer.bianlun.online">asia.timer.bianlun.online(点我跳转)</v-chip>
           ，即在本网站链接前加上“asia” <br>
         </v-card-text>
@@ -556,6 +556,37 @@
             href="http://asia.timer.bianlun.online"
           >
             点这里使用海外服务器
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog
+      v-model="crashDialog"
+      width="500"
+    >
+      <v-card>
+        <v-card-title class="text-h5 primary white--text">
+          重要提醒！
+        </v-card-title>
+
+        <v-card-text class="text-left">
+          <br>
+          重要提醒！<br>
+          为了计时器能够进一步发展，为大家提供更多功能，自1.28版本开始，我们将放弃对老旧的浏览器的支持。
+          它们包括但不限于 【IE浏览器任意版本】【Chrome54以下版本】等。 <br/>
+          如果很不幸你将要使用的浏览器符合上述描述，或者在实际测试中遇到了不能正常使用的情况：
+          1. 请使用一个停止更新的兼容版：
+          <v-btn href="https://legacy.timer.bianlun.online" color="primary" small>兼容版</v-btn>
+          <h3 class="red--text">2. 如果你对你将要使用计时器的电脑中浏览器环境不确定，强烈建议你申请离线版计时器。</h3>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            @click="crashDialog = false"
+          >
+            我已了解【IE浏览器】已不再受支持
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -598,13 +629,12 @@ export default {
   },
   async mounted() {
     this.useEnglish = this.$i18n.locale === 'en';
-    // eslint-disable-next-line no-undef
-    this.userIpInfo = returnCitySN;
-    // eslint-disable-next-line no-undef
-    const { cid } = returnCitySN;
-    if (cid !== parseInt(cid, 10).toString()) {
+    const { data: { data: { data: { country } } } } = await axios.get('https://hn216.api.yesapi.cn/?s=Ext.IP.GetInfo&return_data=0&app_key=6EC14C1A2BD1952E71390CFCB082858F&sign=33B5DE7F62ED98031FCA0AA8D9C26B4A');
+    console.log(country);
+    if (country !== '中国') {
       if (window.location.href.indexOf('asia') === -1) this.ipDialog = true;
     }
+    this.userIpInfo.country = country;
     if (this.isElectron) return;
     if (this.$route.query.rid !== undefined) {
       this.code = this.$route.query.rid;
@@ -627,6 +657,7 @@ export default {
   data() {
     const elecCode = offlineConfig.timerId;
     return {
+      crashDialog: true,
       app_ver: nowVersion,
       ipDialog: false,
       userIpInfo: {

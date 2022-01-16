@@ -39,7 +39,7 @@ module.exports = {
         plugins: [
           new PrerenderSPAPlugin({
             staticDir: path.join(__dirname, './dist'),
-            routes: ['/', '/show'],
+            routes: ['/', '/show','/gen'],
             renderer: new Renderer({
               headless: true,
               // renderAfterTime: 5000,

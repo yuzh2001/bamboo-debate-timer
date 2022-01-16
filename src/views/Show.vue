@@ -53,6 +53,22 @@
           如果你的情况并不满足上述两条，可以加QQ群992868670来反馈。<br/>
           同时，紧急情况下可以直接加微信：yuzhuohao来反馈。
         </p>
+        <p
+          style="color: blue; position: fixed; top: 0;font-size: 30px;display:none;"
+          id='load-font-2'
+        class="text-left px-10 py-10">
+          如果网页这里没有出现弹窗，一片空白，你可以看到这行文字，这有两个原因。<br/>
+          一是你的网络不太稳定，建议你<span class="red--text">多刷新几次或者更换网络</span>再试；<br/>
+          二是如果多次刷新仍然没有任何变化，你还是可以看到这行
+          文字，这说明你在使用的浏览器太过于古老，计时器很不幸 <span class="red--text">并不支持它</span>。<br/>
+          你可以做的尝试：<br/>
+          ①如果使用的是国产的浏览器（如搜狗浏览器，QQ浏览器），在网址栏的末尾看看有没有一个IE浏览器的图标，点它一下。（或者百度搜索“XX浏览器 如何开启极速模式”）<br/>
+          ②如果使用的是IE（Internet Explorer），请换成一个现代一些的浏览器，如Chrome，或者QQ浏览器之类的。<br/>
+          <span class="red--text">③【强烈推荐】申请离线版（加下面的那个QQ群）</span><br/>
+          <br/>
+          如果你的情况并不满足上述两条，可以加QQ群992868670来反馈。<br/>
+          同时，紧急情况下可以直接加微信：yuzhuohao来反馈。
+        </p>
         <div class="up">
           <p class="teamName teamNameC" id="teamName-C"></p>
           <p class="teamName teamNameCC" id="teamName-CC"></p>
@@ -247,6 +263,7 @@ import VueI18n from 'vue-i18n';
 import Logger from 'js-logger';
 import Vue from 'vue';
 import { useFullscreen } from '@vueuse/core';
+import * as lc from 'leancloud-storage';
 
 import 'animate.css';
 
@@ -897,14 +914,15 @@ function dealOthers(data) {
   DOM.titleJ.html(title);
 }
 
-function loadRule() {
+async function loadRule() {
   $('#load-font').hide();
-  $('.mainWrapper').focus();
-  $('.mainWrapper').blur(function () {
+  DOM.mainWrapper.focus();
+  DOM.mainWrapper.blur(() => {
     $(this).focus();
   });
   $('#custom').hide();
   if (getQueryVariable('rid') === false) {
+    // eslint-disable-next-line no-alert
     alert('您未输入比赛码！');
     return;
   }
@@ -921,75 +939,32 @@ function loadRule() {
   }
   const ridd = getQueryVariable('rid');
   Logger.debug(ridd);
-  // eslint-disable-next-line eqeqeq
-  if (parseInt(ridd, 10) == ridd) {
-    const q = { timerId: parseInt(ridd, 10) };
-    const qs = encodeURIComponent(JSON.stringify(q));
-    $.ajax({
-      url: `https://f.puluter.cn/1.1/classes/TimerRule?where=${qs}`,
-      headers: {
-        'X-LC-Id': '62X3GtPvERKoUWGz0tvrrVhV-gzGzoHsz',
-        'X-LC-Key': 'GwA3ikMBm4XQrhkPvzNeoU8w',
-        'Content-Type': 'application/json',
-      },
-      success(response) {
-        if (response.results.length === 0) {
-          res.battle.title = '看到这行字说明出现网络问题或计时码错误，请检查';
-          DOM.titleJ.html(res.battle.title);
-          return;
-        }
-        const { rule, objectId } = response.results[0];
-        dealOthers(rule);
-        $.ajax({
-          method: 'put',
-          url: `https://f.puluter.cn/1.1/classes/TimerRule/${objectId}`,
-          headers: {
-            'X-LC-Id': '62X3GtPvERKoUWGz0tvrrVhV-gzGzoHsz',
-            'X-LC-Key': 'GwA3ikMBm4XQrhkPvzNeoU8w',
-            'Content-Type': 'application/json',
-          },
-          data: '{"useTimes":{"__op":"Increment","amount":1}}',
-        });
-      },
-      error() {
-        res.battle.title = '看到这行字说明出现网络问题或计时码错误，请检查';
-        DOM.titleJ.html(res.battle.title);
-      },
-    });
+  const qr = new lc.Query('TimerRule');
+  if (parseInt(ridd, 10).toString() === ridd) {
+    qr.equalTo('timerId', parseInt(ridd, 10));
   } else {
-    const q = { name: decodeURIComponent(ridd) };
-    const qs = encodeURIComponent(JSON.stringify(q));
-    $.ajax({
-      url: `https://f.puluter.cn/1.1/classes/TimerRule?where=${qs}`,
-      headers: {
-        'X-LC-Id': '62X3GtPvERKoUWGz0tvrrVhV-gzGzoHsz',
-        'X-LC-Key': 'GwA3ikMBm4XQrhkPvzNeoU8w',
-        'Content-Type': 'application/json',
-      },
-      success(response) {
-        if (response.results.length === 0) {
-          res.battle.title = '看到这行字说明出现网络问题或计时码错误，请检查';
-          DOM.titleJ.html(res.battle.title);
-          return;
-        }
-        const { rule, objectId } = response.results[0];
-        dealOthers(rule);
-        $.ajax({
-          method: 'put',
-          url: `https://f.puluter.cn/1.1/classes/TimerRule/${objectId}`,
-          headers: {
-            'X-LC-Id': '62X3GtPvERKoUWGz0tvrrVhV-gzGzoHsz',
-            'X-LC-Key': 'GwA3ikMBm4XQrhkPvzNeoU8w',
-            'Content-Type': 'application/json',
-          },
-          data: '{"useTimes":{"__op":"Increment","amount":1}}',
-        });
-      },
-      error() {
-        res.battle.title = '看到这行字说明出现网络问题或计时码错误，请检查';
-        DOM.titleJ.html(res.battle.title);
-      },
-    });
+    qr.equalTo('name', decodeURIComponent(ridd));
+  }
+  try {
+    const queryTimerRuleRes = await qr.find();
+    if (queryTimerRuleRes.length === 0) {
+      res.battle.title = '看到这行字说明计时码错误，请检查';
+      DOM.titleJ.html(res.battle.title);
+      return;
+    }
+    const { rule } = queryTimerRuleRes[0].attributes;
+    dealOthers(rule);
+    const trInc = queryTimerRuleRes[0];
+    trInc.increment('useTimes', 1);
+    await trInc.save();
+  } catch (e) {
+    res.battle.title = '看到这行字说明出现网络问题或浏览器版本过旧，请检查';
+    DOM.titleJ.html(res.battle.title);
+    $('#load-font-2').show();
+    $('[role=document]').hide();
+    $('.v-overlay').hide();
+    $('.txt').hide();
+    $('#main').css('background', 'white');
   }
 }
 
@@ -1006,12 +981,13 @@ function changeBackground() {
     if (!imageType.test(file.type)) continue;
 
     const reader = new FileReader();
-    reader.onload = function (e) {
+    // eslint-disable-next-line no-loop-func
+    reader.onload = (e) => {
       Logger.debug(e);
       Logger.debug(`url(${e.target.result}) no-repeat`);
-      $('#main').show();
-      $('#main').css('background', `url(${e.target.result}) no-repeat`);
-      $('#main').css('background-size', '100%');
+      DOM.main.show();
+      DOM.main.css('background', `url(${e.target.result}) no-repeat`);
+      DOM.main.css('background-size', '100%');
     };
     reader.readAsDataURL(file);
   }
@@ -1051,12 +1027,13 @@ function changeRatio() {
 }
 
 const documentReady = () => {
-  setTimeout(() => {
+  setTimeout(async () => {
     Logger.warn('HELLO WORLD');
     Logger.debug(document);
     Logger.debug(window);
     const { userAgent } = navigator; // 取得浏览器的userAgent字符串
     if (userAgent.indexOf('Firefox') > -1) { // 判断是否Firefox浏览器
+      // eslint-disable-next-line no-alert
       alert('本计时器不支持火狐浏览器！！！务必换用其他浏览器！');
     }
 
@@ -1156,6 +1133,8 @@ export default {
     loadCss();
     DOM = {
       bigTimer: $('#mainTimer'),
+      main: $('#main'),
+      mainWrapper: $('#mainWrapper'),
       freeTimer: $('#freeTimerId'),
       titleJ: $('#title'),
       methodBtn: $('#btn-method-start'),

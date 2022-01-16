@@ -4,7 +4,6 @@ import Show from '@/views/Show.vue';
 import Enter from '@/views/Enter.vue';
 
 Vue.use(VueRouter);
-
 const routes = {
   web: [
     {
