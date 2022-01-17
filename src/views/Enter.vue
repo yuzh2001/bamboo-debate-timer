@@ -680,7 +680,7 @@ export default {
   data() {
     const elecCode = offlineConfig.timerId;
     return {
-      crashDialog: false,
+      crashDialog: true,
       app_ver: nowVersion,
       ipDialog: false,
       userIpInfo: {
@@ -826,7 +826,7 @@ export default {
   },
   computed: {
     compTimerUrl() {
-      return `${process.env.VUE_APP_VUERO_HOST}/app/timer-set/list`;
+      return `${process.env.VUE_APP_VUERO_HOST}/#/app/timer-set/list`;
     },
     cantForward() {
       return this.code === 0;
