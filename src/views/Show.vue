@@ -899,6 +899,12 @@ function dealOthers(data) {
       $('#CCTime1').css('color', timerFan);
     }
   }
+  console.log(getQueryVariable('bgUrl'));
+  if (getQueryVariable('bgUrl') !== false) {
+    const bgUrl = decodeURIComponent(getQueryVariable('bgUrl'));
+    $('#main').css('background', `url(${bgUrl}) no-repeat`);
+    $('#main').css('background-size', '100%');
+  }
   // let spaceKeyMap = '空格';
   // if (getQueryVariable('useb') !== false) {
   //   if (getQueryVariable('useb') === 'true') {

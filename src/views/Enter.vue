@@ -221,7 +221,30 @@
 
       </v-col>
       <v-col cols="12" sm="6" md="5">
-        <v-card class="">
+
+        <v-card>
+          <v-card-title class="text-center headline">
+            <v-icon color="primary" medium class="mr-4 text-weight-black"
+            >fa-sign-in-alt
+            </v-icon
+            >
+            比赛码
+          </v-card-title>
+          <v-row>
+            <v-col cols="2"></v-col>
+            <v-col cols="8">
+              <v-btn
+                color="error"
+                block
+                :href="compTimerUrl"
+              >
+                【新功能：点击这里使用比赛码】
+              </v-btn>
+            </v-col>
+            <v-col cols="2"></v-col>
+          </v-row>
+        </v-card>
+        <v-card class="mt-5">
           <v-card-title class="text-center headline">
             <v-icon color="primary" medium class="mr-4 text-weight-black"
             >fa-sign-in-alt
@@ -657,7 +680,7 @@ export default {
   data() {
     const elecCode = offlineConfig.timerId;
     return {
-      crashDialog: true,
+      crashDialog: false,
       app_ver: nowVersion,
       ipDialog: false,
       userIpInfo: {
@@ -802,6 +825,9 @@ export default {
     },
   },
   computed: {
+    compTimerUrl() {
+      return `${process.env.VUE_APP_VUERO_HOST}/app/timer-set/list`;
+    },
     cantForward() {
       return this.code === 0;
     },

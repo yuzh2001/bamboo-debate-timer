@@ -58,7 +58,7 @@ new Vue({
   render: (h) => h(App),
   beforeCreate() {
     this.$store.commit('updateDb', genDb(this.$i18n));
-    console.log(this.$store.state.debate_db);
+    // console.log(this.$store.state.debate_db);
   },
   mounted() {
     document.dispatchEvent(new Event('render-event'));

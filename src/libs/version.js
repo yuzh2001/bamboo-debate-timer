@@ -1,6 +1,9 @@
-export const nowVersion = 'V1.28.220117';
+export const nowVersion = 'V1.29.220117';
 export const updateTime = '2022年1月17日';
-export const updateLogs = `# V1.28.220117
+export const updateLogs = `# V1.29.220117
+- 接入比赛码
+
+# V1.28.220117
 - 修改部分细节
 - 停止对老旧浏览器提供支持，为新版本上线做准备
 
