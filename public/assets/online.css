@@ -6,6 +6,10 @@
     font-family: 'Digiface';
     src: url('https://cdn.puluter.cn/font2.ttf');
 }
+@font-face {
+    font-family: 'ormont';
+    src: url('https://cdn.puluter.cn/font3.ttf');
+}
 .support-webp .mainWrapper {
     background: url(https://cdn.puluter.cn/background.webp) no-repeat;
     background-size: 100%;

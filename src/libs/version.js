@@ -1,7 +1,10 @@
-export const nowVersion = 'V1.29.220117';
-export const updateTime = '2022年1月17日';
-export const updateLogs = `# V1.29.220117
-- 接入比赛码
+export const nowVersion = 'V1.30.220121';
+export const updateTime = '2022年1月21日';
+export const updateLogs = `# V1.30.220121
+- 加入自定义字体功能
+
+# V1.29.220117
+- 接入赛事码
 
 # V1.28.220117
 - 修改部分细节

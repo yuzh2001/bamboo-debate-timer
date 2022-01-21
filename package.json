@@ -34,6 +34,7 @@
     "babel-plugin-js-logger": "^1.0.17",
     "core-js": "^3.6.5",
     "electron": "^14.0.1",
+    "electron-builder": "^22.14.5",
     "howler": "^2.2.3",
     "jquery": "^3.6.0",
     "js-base64": "^3.6.0",
@@ -95,5 +96,6 @@
     "last 2 versions",
     "not dead"
   ],
-  "title": "辩之竹-赛制生成器"
+  "title": "辩之竹-赛制生成器",
+  "__npminstall_done": false
 }

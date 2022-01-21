@@ -1,4 +1,4 @@
-<template>
+¶<template>
   <div class="con" ref = "conn">
 
     <div class="body1 support-webp"
@@ -425,6 +425,17 @@ function checkTimer() {
   let min;
   let sec;
   let str;
+  let concatItem = ' : ';
+  if (getQueryVariable('font') !== false) {
+    const font = getQueryVariable('font');
+    switch (font) {
+      case 'ormont':
+        concatItem = ':';
+        break;
+      default:
+        concatItem = ' : ';
+    }
+  }
   if (timerUsing === TYPE.大计时器) {
     if (timerStatus[0] === 0) DOM.methodBtn.html(i18n.t('timer.ui.start')).attr('class', 'btn btn-success btn-lg');
     else DOM.methodBtn.html(i18n.t('timer.ui.pause')).attr('class', 'btn btn-danger btn-lg');
@@ -437,7 +448,7 @@ function checkTimer() {
     sec = Math.floor(bigTimerTime - min * 60);
     if (min < 10) min = `0${min}`;
     if (sec < 10) sec = `0${sec}`;
-    str = `${min} : ${sec}`;
+    str = `${min}${concatItem}${sec}`;
     $('#mainTimer').html(str);
 
     if (bigTimerTime <= 30) $('#mainTimer').attr('class', 'bigTime danger-time-big');
@@ -448,7 +459,7 @@ function checkTimer() {
     sec = Math.floor(freeTimerTime[0] - min * 60);
     if (min < 10) min = `0${min}`;
     if (sec < 10) sec = `0${sec}`;
-    str = `${min} : ${sec}`;
+    str = `${min}${concatItem}${sec}`;
     $('#CTime').html(str);
     if (freeTimerTime[0] <= 30) $('#CTime').attr('class', 'CTime danger-time-small');
     else $('#CTime').attr('class', 'CTime');
@@ -457,7 +468,7 @@ function checkTimer() {
     sec = Math.floor(freeTimerTime[1] - min * 60);
     if (min < 10) min = `0${min}`;
     if (sec < 10) sec = `0${sec}`;
-    str = `${min} : ${sec}`;
+    str = `${min}${concatItem}${sec}`;
     $('#CCTime').html(str);
     if (freeTimerTime[1] <= 30) $('#CCTime').attr('class', 'CCTime danger-time-small');
     else $('#CCTime').attr('class', 'CCTime');
@@ -905,6 +916,12 @@ function dealOthers(data) {
     $('#main').css('background', `url(${bgUrl}) no-repeat`);
     $('#main').css('background-size', '100%');
   }
+  if (getQueryVariable('font') !== false) {
+    const font = (getQueryVariable('font'));
+    $('.bigTime').css('font-family', font);
+    $('.CTime').css('font-family', font);
+    $('.CCTime').css('font-family', font);
+  }
   // let spaceKeyMap = '空格';
   // if (getQueryVariable('useb') !== false) {
   //   if (getQueryVariable('useb') === 'true') {
@@ -1103,7 +1120,7 @@ const documentReady = () => {
       rules[i] = ruleArr[i].split(',');
     }
     changeStatusTo(0);
-    accurateInterval(checkTimer, 50);
+    accurateInterval(checkTimer, 100);
     loadRule();
   }, 10);
 };
