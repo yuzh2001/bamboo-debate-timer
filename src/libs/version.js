@@ -1,6 +1,10 @@
-export const nowVersion = 'V1.30.220121';
-export const updateTime = '2022年1月21日';
-export const updateLogs = `# V1.30.220121
+export const nowVersion = 'V1.31.220127';
+export const updateTime = '2022年1月27日';
+export const updateLogs = `# V1.31.220127
+- 修复了多个影响性能的问题，大大提高了计时器计时稳定性
+- 修复了鼠标空格混用时出现的问题
+
+# V1.30.220121
 - 加入自定义字体功能
 
 # V1.29.220117

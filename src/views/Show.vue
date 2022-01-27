@@ -1,70 +1,85 @@
-¶<template>
-  <div class="con" ref = "conn">
-
-    <div class="body1 support-webp"
-         oncontextmenu="return false;"
-         onselectstart="return false"
-         onbeforeunload="checkLeave()">
+¶
+<template>
+  <div class="con" ref="conn">
+    <div
+      class="body1 support-webp"
+      oncontextmenu="return false;"
+      onselectstart="return false"
+      onbeforeunload="checkLeave()"
+    >
       <div class="audio">
         <link id="cssLink"/>
         <audio
-
           style="display: none; height: 0"
           id="mic-1"
           preload="auto"
           loop="loop"
         ></audio>
         <audio
-
           style="display: none; height: 0"
           id="mic-2"
           preload="auto"
           loop="loop"
         ></audio>
         <audio
-
           style="display: none; height: 0"
           id="mic-3"
           preload="auto"
           loop="loop"
         ></audio>
-
       </div>
       <div class="" id="custom">
         选择图片:<input type="file" id="images" accept="image/*"/>
         <input type="button" value="确认图片" id="changeBack"/>
       </div>
-      <div class="copyright">{{$t('timer.ad.1l')}}
+      <div class="copyright">
+        {{ $t('timer.ad.1l') }}
         <br/>
-        {{$t('timer.ad.2l')}}
+        {{ $t('timer.ad.2l') }}
         <br/>
-        {{$t('timer.ad.3l')}}
+        {{ $t('timer.ad.3l') }}
       </div>
-      <div class="mainWrapper" id="main" tabindex="0" style="background-color:rgb(53,73,82);">
+      <div
+        class="mainWrapper"
+        id="main"
+        tabindex="0"
+        style="background-color:rgb(53,73,82);"
+      >
         <p
           style="font-family: 'Digiface';color: red; position: fixed; bottom: 0;font-size: 30px;"
-          id='load-font'>
+          id="load-font"
+        >
           如果网页这里没有出现弹窗，一片空白，你可以看到这行文字，请先耐心等待几秒钟看看会不会只是网络太卡。<br/>
           如果等待一段时间仍然没有任何变化，你还是可以看到这行文字，这说明你在使用的浏览器太过于古老，计时器很不幸并不支持它。<br/>
           你可以做的尝试：<br/>
-          ①如果使用的是国产的浏览器（如搜狗浏览器，QQ浏览器），在网址栏的末尾看看有没有一个IE浏览器的图标，点它一下。（或者百度搜索“XX浏览器 如何开启极速模式”）<br/>
-          ②如果使用的是IE（Internet Explorer），请换成一个现代一些的浏览器，如Chrome，或者QQ浏览器之类的。<br/>
+          ①如果使用的是国产的浏览器（如搜狗浏览器，QQ浏览器），在网址栏的末尾看看有没有一个IE浏览器的图标，点它一下。（或者百度搜索“XX浏览器
+          如何开启极速模式”）<br/>
+          ②如果使用的是IE（Internet
+          Explorer），请换成一个现代一些的浏览器，如Chrome，或者QQ浏览器之类的。<br/>
           <br/>
           如果你的情况并不满足上述两条，可以加QQ群992868670来反馈。<br/>
           同时，紧急情况下可以直接加微信：yuzhuohao来反馈。
         </p>
         <p
           style="color: blue; position: fixed; top: 0;font-size: 30px;display:none;"
-          id='load-font-2'
-        class="text-left px-10 py-10">
+          id="load-font-2"
+          class="text-left px-10 py-10"
+        >
           如果网页这里没有出现弹窗，一片空白，你可以看到这行文字，这有两个原因。<br/>
-          一是你的网络不太稳定，建议你<span class="red--text">多刷新几次或者更换网络</span>再试；<br/>
+          一是你的网络不太稳定，建议你<span class="red--text"
+        >多刷新几次或者更换网络</span
+        >再试；<br/>
           二是如果多次刷新仍然没有任何变化，你还是可以看到这行
-          文字，这说明你在使用的浏览器太过于古老，计时器很不幸 <span class="red--text">并不支持它</span>。<br/>
+          文字，这说明你在使用的浏览器太过于古老，计时器很不幸
+          <span class="red--text">并不支持它</span>。<br/>
           你可以做的尝试：<br/>
-          ①如果使用的是国产的浏览器（如搜狗浏览器，QQ浏览器），在网址栏的末尾看看有没有一个IE浏览器的图标，点它一下。（或者百度搜索“XX浏览器 如何开启极速模式”）<br/>
-          ②如果使用的是IE（Internet Explorer），请换成一个现代一些的浏览器，如Chrome，或者QQ浏览器之类的。<br/>
-          <span class="red--text">③【强烈推荐】申请离线版（加下面的那个QQ群）</span><br/>
+          ①如果使用的是国产的浏览器（如搜狗浏览器，QQ浏览器），在网址栏的末尾看看有没有一个IE浏览器的图标，点它一下。（或者百度搜索“XX浏览器
+          如何开启极速模式”）<br/>
+          ②如果使用的是IE（Internet
+          Explorer），请换成一个现代一些的浏览器，如Chrome，或者QQ浏览器之类的。<br/>
+          <span class="red--text"
+          >③【强烈推荐】申请离线版（加下面的那个QQ群）</span
+          ><br/>
           <br/>
           如果你的情况并不满足上述两条，可以加QQ群992868670来反馈。<br/>
           同时，紧急情况下可以直接加微信：yuzhuohao来反馈。
@@ -79,19 +94,23 @@
           <p class="titleOfTimer" id="title"></p>
           <p class="status" id="status"></p>
           <p class="emptyRound" id="emptyRound"></p>
-          <p class="bigTime" id="mainTimer">00 : 00</p>
+          <p class="bigTime" id="mainTimer">{{ vue_bigTimer }}</p>
+          <!--          <p class="bigTime" id="mainTimer">00 : 00</p>-->
           <div class="timeSet" id="freeTimerId" style="position: fixed">
-          <span>
-            <p class="CTime" id="CTime">01 : 37</p>
-            <p class="sideTxt sideC" id="CTime1">{{$t('timer.ui.timer.aff')}}</p>
-          </span>
             <span>
-            <p class="CCTime" id="CCTime">01 : 37</p>
-            <p class="sideTxt sideCC" id="CCTime1">{{$t('timer.ui.timer.neg')}}</p>
-          </span>
+              <p class="CTime" id="CTime">{{ vue_positiveTimer }}</p>
+              <p class="sideTxt sideC" id="CTime1">
+                {{ $t('timer.ui.timer.aff') }}
+              </p>
+            </span>
+            <span>
+              <p class="CCTime" id="CCTime">{{ vue_negTimer }}</p>
+              <p class="sideTxt sideCC" id="CCTime1">
+                {{ $t('timer.ui.timer.neg') }}
+              </p>
+            </span>
           </div>
         </div>
-
       </div>
       <div class="controllerGroup">
         <div
@@ -100,96 +119,87 @@
           aria-label="Toolbar with button groups"
         >
           <div class="btn-group mr-2" role="group" aria-label="First group">
-            <button
-              type="button"
-              id="prevButton"
-              class="btn btn-light  btn-lg"
-            >
+            <span type="button" id="prevButton" class="btn btn-light  btn-lg">
               ←
-            </button>
+            </span>
           </div>
 
           <div class="btn-group mr-2" role="group" aria-label="Second group">
-            <button
+            <span
               type="button"
               id="btn-method-start"
               class="btn btn-success btn-lg"
             >
               开始
-            </button>
+            </span>
           </div>
-          <div class="btn-group mr-2 double-0" da="1" role="group" aria-label="Second group">
-            <button
-              type="button"
-              id="btnc"
-              class="btn btn-success btn-lg"
-            >
-              {{$t('timer.ui.aff')}}
-            </button>
+          <div
+            class="btn-group mr-2 double-0"
+            da="1"
+            role="group"
+            aria-label="Second group"
+          >
+            <span type="button" id="btnc" class="btn btn-success btn-lg">
+              {{ $t('timer.ui.aff') }}
+            </span>
           </div>
-          <div class="btn-group mr-2 double-1" da="1" role="group" aria-label="Second group">
-            <button
-              type="button"
-              id="btncc"
-              class="btn btn-success btn-lg"
-            >
-              {{$t('timer.ui.neg')}}
-            </button>
-          </div>
-          <div class="btn-group mr-2" role="group" aria-label="Second group">
-            <button
-              type="button"
-              id="stopBoth"
-              class="btn btn-danger btn-lg"
-            >
-              {{$t('timer.ui.stopBoth')}}
-            </button>
+          <div
+            class="btn-group mr-2 double-1"
+            da="1"
+            role="group"
+            aria-label="Second group"
+          >
+            <span type="button" id="btncc" class="btn btn-success btn-lg">
+              {{ $t('timer.ui.neg') }}
+            </span>
           </div>
           <div class="btn-group mr-2" role="group" aria-label="Second group">
-            <button
-              type="button"
-              id="resetTime"
-              class="btn btn-danger btn-lg"
-            >
-              {{$t('timer.ui.reset')}}
-            </button>
+            <span type="button" id="stopBoth" class="btn btn-danger btn-lg">
+              {{ $t('timer.ui.stopBoth') }}
+            </span>
           </div>
-          <div class="btn-group mr-2" role="group"
-               aria-label="Second group" v-if="isElectron">
-            <button
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <span type="button" id="resetTime" class="btn btn-danger btn-lg">
+              {{ $t('timer.ui.reset') }}
+            </span>
+          </div>
+          <div
+            class="btn-group mr-2"
+            role="group"
+            aria-label="Second group"
+            v-if="isElectron"
+          >
+            <span
               type="button"
-              @click="$router.push({path:'/'});"
+              @click="$router.push({ path: '/' })"
               class="btn btn-success btn-lg"
             >
-              {{$t('timer.ui.return')}}
-            </button>
+              {{ $t('timer.ui.return') }}
+            </span>
           </div>
-          <div class="btn-group mr-2" role="group"
-               aria-label="Second group">
-            <button
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <span
               type="button"
               @click="toggleFull"
               ref="lastBtn"
               style="--animate-duration:1.5s;"
               class="btn btn-success btn-lg"
-            >{{isFullscreen?$t('timer.ui.closeFull'):$t('timer.ui.openFull')}}
-            </button>
+            >
+              {{
+                isFullscreen
+                  ? $t('timer.ui.closeFull')
+                  : $t('timer.ui.openFull')
+              }}
+            </span>
           </div>
           <div class="btn-group" role="group" aria-label="Third group">
-            <button
-              type="button"
-              id="stepButton"
-              class="btn btn-light  btn-lg"
-            >
+            <span type="button" id="stepButton" class="btn btn-light  btn-lg">
               →
-            </button>
+            </span>
           </div>
         </div>
       </div>
-      <v-dialog
-        v-model="dialog"
-        width="500"
-      >
+      <v-dialog v-model="dialog" width="500">
         <v-card>
           <v-card-title class="text-h5 primary white--text">
             使用说明
@@ -197,40 +207,44 @@
 
           <v-card-text class="text-left">
             <p>
-              <br>
-              <v-chip
-                class="mb-2"
-                color="pink"
-                label
-                text-color="white"
-              >
+              <br/>
+              <v-chip class="mb-2" color="pink" label text-color="white">
                 <v-icon left>
                   mdi-label
                 </v-icon>
                 键盘操作
               </v-chip>
-              <br>
-              <v-chip small>←</v-chip><v-chip small>→</v-chip>&nbsp;切换环节 <br>
-              <v-chip small>{{spaceKeyMap}}</v-chip>&nbsp;开始/暂停计时 <br>
-              <v-chip small>回车</v-chip>&nbsp;强制停止双方计时 <br>
-              <v-chip small>R</v-chip>&nbsp;重置时间<br>
-              <v-chip small>小于号&lt;</v-chip> 正方开始，<v-chip small>大于号&gt;</v-chip>
-              反方开始(也可以直接按{{spaceKeyMap}}来一键切换正反方)。<br>
-              <br>
-
-              <v-chip
-                class="my-2"
-                color="pink"
-                label
-                text-color="white"
+              <br/>
+              <v-chip small>←</v-chip>
+              <v-chip small>→</v-chip>&nbsp;切换环节
+              <br/>
+              <v-chip small>{{ spaceKeyMap }}
+              </v-chip
+              >&nbsp;开始/暂停计时 <br/>
+              <v-chip small>回车</v-chip>&nbsp;强制停止双方计时 <br/>
+              <v-chip small>R</v-chip>&nbsp;重置时间<br/>
+              <v-chip small>小于号&lt;</v-chip>
+              正方开始，
+              <v-chip small
+              >大于号&gt;
+              </v-chip
               >
+              反方开始(也可以直接按{{ spaceKeyMap }}来一键切换正反方)。<br/>
+              <br/>
+
+              <v-chip class="my-2" color="pink" label text-color="white">
                 <v-icon left>
                   mdi-label
                 </v-icon>
                 展示提示音
               </v-chip>
-              <br>按下<v-chip small>数字键1</v-chip>展示30秒倒计时提示音，按下<v-chip small>数字键2</v-chip>
-              展示时间到提示音。<br>
+              <br/>按下
+              <v-chip small>数字键1
+              </v-chip
+              >
+              展示30秒倒计时提示音，按下
+              <v-chip small>数字键2</v-chip>
+              展示时间到提示音。<br/>
             </p>
           </v-card-text>
 
@@ -238,11 +252,7 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn
-              color="primary"
-              text
-              @click="closeDialog"
-            >
+            <v-btn color="primary" text @click="closeDialog">
               我了解了
             </v-btn>
           </v-card-actions>
@@ -252,8 +262,6 @@
   </div>
 </template>
 
-<!--<script src="./lib/jquery.min.js"></script>-->
-<!--<script src="./lib/howler.min.js"></script>-->
 <script>
 /* eslint no-use-before-define: ["off", { "functions": false }] */
 /* eslint-disable radix */
@@ -263,8 +271,10 @@ import VueI18n from 'vue-i18n';
 import Logger from 'js-logger';
 import Vue from 'vue';
 import { useFullscreen } from '@vueuse/core';
+import {
+  computed, ref,
+} from '@vue/composition-api';
 import * as lc from 'leancloud-storage';
-
 import 'animate.css';
 
 // eslint-disable-next-line import/extensions
@@ -276,10 +286,13 @@ const { toggle } = useFullscreen();
 
 Logger.useDefaults();
 window.addEventListener('DOMContentLoaded', () => {
-  const isSupportWebP = document.createElement('canvas')
+  const isSupportWebP = document
+    .createElement('canvas')
     .toDataURL('image/webp')
     .indexOf('data:image/webp') === 0;
-  document.documentElement.classList.add(isSupportWebP ? '.hello' : '.no-support-webp');
+  document.documentElement.classList.add(
+    isSupportWebP ? '.hello' : '.no-support-webp',
+  );
 });
 
 let link = document.createElement('link');
@@ -294,6 +307,13 @@ link.rel = 'preload';
 link.crossOrigin = true;
 link.as = 'font';
 link.href = 'https://cdn.puluter.cn/font2.ttf';
+document.head.appendChild(link);
+
+link = document.createElement('link');
+link.rel = 'preload';
+link.crossOrigin = true;
+link.as = 'font';
+link.href = 'https://cdn.puluter.cn/font3.ttf';
 document.head.appendChild(link);
 
 Vue.use(VueI18n);
@@ -348,7 +368,7 @@ const utils = {
    */
   genRule: (type, attack, u1, u2, time1, time2, title) => [type, attack, u1, u2, time1, time2, title].join(','),
 };
-const TIME_PARTICLE = 10;
+const TIME_PARTICLE = 200;
 const TIME_INTER = TIME_PARTICLE / 1000;
 const rules = [];
 let statusNowLocal = 0;
@@ -373,11 +393,13 @@ let rulesOriginal = [];
 
 const url = (i) => `../assets/${i}.wav`;
 // eslint-disable-next-line no-undef
-const sounds = [new Howl({ src: [url(1)], loop: true, autoplay: false }),
-// eslint-disable-next-line no-undef
+const sounds = [
+  new Howl({ src: [url(1)], loop: true, autoplay: false }),
+  // eslint-disable-next-line no-undef
   new Howl({ src: [url(2)], loop: true, autoplay: false }),
   // eslint-disable-next-line no-undef
-  new Howl({ src: [url(3)], loop: true, autoplay: false })];
+  new Howl({ src: [url(3)], loop: true, autoplay: false }),
+];
 
 sounds.forEach((item) => {
   item.once('load', () => {
@@ -389,15 +411,14 @@ sounds.forEach((item) => {
 const accurateInterval = function (fn, time) {
   let nextAt;
   let timeout;
-  let ref;
-  const
-    ongoing = true;
+  let ref1;
+  const ongoing = true;
   nextAt = new Date().getTime() + time;
   timeout = null;
   if (typeof time === 'function') {
-    ref = [time, fn];
+    ref1 = [time, fn];
     // eslint-disable-next-line no-param-reassign
-    [fn, time] = ref;
+    [fn, time] = ref1;
   }
   // eslint-disable-next-line func-names
   const wrapper = function () {
@@ -422,56 +443,21 @@ function changeTitle(str) {
 }
 
 function checkTimer() {
-  let min;
-  let sec;
-  let str;
-  let concatItem = ' : ';
-  if (getQueryVariable('font') !== false) {
-    const font = getQueryVariable('font');
-    switch (font) {
-      case 'ormont':
-        concatItem = ':';
-        break;
-      default:
-        concatItem = ' : ';
+  const btnClass = DOM.methodBtn.attr('class');
+  if (timerUsing === TYPE.大计时器) {
+    if (timerStatus[0] === 0 && btnClass !== 'btn btn-success btn-lg') {
+      DOM.methodBtn
+        .html(i18n.t('timer.ui.start'))
+        .attr('class', 'btn btn-success btn-lg');
+    } else if (timerStatus[0] !== 0 && btnClass !== 'btn btn-danger btn-lg') {
+      DOM.methodBtn
+        .html(i18n.t('timer.ui.pause'))
+        .attr('class', 'btn btn-danger btn-lg');
     }
-  }
-  if (timerUsing === TYPE.大计时器) {
-    if (timerStatus[0] === 0) DOM.methodBtn.html(i18n.t('timer.ui.start')).attr('class', 'btn btn-success btn-lg');
-    else DOM.methodBtn.html(i18n.t('timer.ui.pause')).attr('class', 'btn btn-danger btn-lg');
-  } else {
-    DOM.methodBtn.html(i18n.t('timer.ui.switch')).attr('class', 'btn btn-light btn-lg');
-  }
-
-  if (timerUsing === TYPE.大计时器) {
-    min = Math.floor(bigTimerTime / 60);
-    sec = Math.floor(bigTimerTime - min * 60);
-    if (min < 10) min = `0${min}`;
-    if (sec < 10) sec = `0${sec}`;
-    str = `${min}${concatItem}${sec}`;
-    $('#mainTimer').html(str);
-
-    if (bigTimerTime <= 30) $('#mainTimer').attr('class', 'bigTime danger-time-big');
-    else $('#mainTimer').attr('class', 'bigTime');
-  } else {
-    // $('#mainTimer').hide();
-    min = Math.floor(freeTimerTime[0] / 60);
-    sec = Math.floor(freeTimerTime[0] - min * 60);
-    if (min < 10) min = `0${min}`;
-    if (sec < 10) sec = `0${sec}`;
-    str = `${min}${concatItem}${sec}`;
-    $('#CTime').html(str);
-    if (freeTimerTime[0] <= 30) $('#CTime').attr('class', 'CTime danger-time-small');
-    else $('#CTime').attr('class', 'CTime');
-
-    min = Math.floor(freeTimerTime[1] / 60);
-    sec = Math.floor(freeTimerTime[1] - min * 60);
-    if (min < 10) min = `0${min}`;
-    if (sec < 10) sec = `0${sec}`;
-    str = `${min}${concatItem}${sec}`;
-    $('#CCTime').html(str);
-    if (freeTimerTime[1] <= 30) $('#CCTime').attr('class', 'CCTime danger-time-small');
-    else $('#CCTime').attr('class', 'CCTime');
+  } else if (timerUsing !== TYPE.大计时器 && btnClass !== 'btn btn-light btn-lg') {
+    DOM.methodBtn
+      .html(i18n.t('timer.ui.switch'))
+      .attr('class', 'btn btn-light btn-lg');
   }
 }
 
@@ -484,7 +470,7 @@ function stopBigTimer() {
 let bigCanPlay = true;
 
 function bigTimerDecline() {
-  if (Math.abs(bigTimerTime - 30) <= 0.1 && bigCanPlay) {
+  if (Math.abs(bigTimerTime - 30) <= 0.2 && bigCanPlay) {
     playSound(2);
     bigCanPlay = false;
     setTimeout(() => {
@@ -492,7 +478,7 @@ function bigTimerDecline() {
       bigCanPlay = true;
     }, 700);
   }
-  if (bigTimerTime <= 0.1) {
+  if (bigTimerTime <= 0.2) {
     bigTimerTime = 0;
     Logger.debug('STOPPED!');
     playSound(3);
@@ -523,7 +509,7 @@ function stopCTimer() {
 }
 
 function CTimerDecline() {
-  if (Math.abs(freeTimerTime[1] - 30) <= 0.1 && canPlayFree[0]) {
+  if (Math.abs(freeTimerTime[1] - 30) <= 0.2 && canPlayFree[0]) {
     playSound(2);
     canPlayFree[0] = false;
     setTimeout(() => {
@@ -531,7 +517,7 @@ function CTimerDecline() {
       canPlayFree[0] = true;
     }, 700);
   }
-  if (freeTimerTime[1] <= 0.1) {
+  if (freeTimerTime[1] <= 0.2) {
     freeTimerTime[1] = 0;
     stopCTimer();
     playSound(3);
@@ -695,19 +681,39 @@ function changeStatusTo(id) {
     }
     useBigTimer(time1 || time2);
   } else if (type === TYPE.质询) {
-    if (attackSide) str = `${i18n.t('timer.affirm')}${u1} · ${title} · ${i18n.t('timer.neg')}${u2}`;
-    else str = `${i18n.t('timer.neg')}${u2} · ${title} · ${i18n.t('timer.affirm')}${u1}`;
+    if (attackSide) {
+      str = `${i18n.t('timer.affirm')}${u1} · ${title} · ${i18n.t(
+        'timer.neg',
+      )}${u2}`;
+    } else {
+      str = `${i18n.t('timer.neg')}${u2} · ${title} · ${i18n.t(
+        'timer.affirm',
+      )}${u1}`;
+    }
     if (u1 === '无' && u2 === '无') {
-      if (attackSide) str = `${i18n.t('timer.affirm')} · ${title} · ${i18n.t('timer.neg')}`;
-      else str = `${i18n.t('timer.neg')} · ${title} · ${i18n.t('timer.affirm')}`;
+      if (attackSide) {
+        str = `${i18n.t('timer.affirm')} · ${title} · ${i18n.t('timer.neg')}`;
+      } else {
+        str = `${i18n.t('timer.neg')} · ${title} · ${i18n.t('timer.affirm')}`;
+      }
     }
     useBigTimer(time1 || time2);
   } else if (type === TYPE.对辩) {
-    if (attackSide) str = `${i18n.t('timer.affirm')}${u1} · ${title} · ${i18n.t('timer.neg')}${u2}`;
-    else str = `${i18n.t('timer.neg')}${u2} · ${title} · ${i18n.t('timer.affirm')}${u1}`;
+    if (attackSide) {
+      str = `${i18n.t('timer.affirm')}${u1} · ${title} · ${i18n.t(
+        'timer.neg',
+      )}${u2}`;
+    } else {
+      str = `${i18n.t('timer.neg')}${u2} · ${title} · ${i18n.t(
+        'timer.affirm',
+      )}${u1}`;
+    }
     if (u1 === '无' && u2 === '无') {
-      if (attackSide) str = `${i18n.t('timer.affirm')} · ${title} · ${i18n.t('timer.neg')}`;
-      else str = `${i18n.t('timer.neg')} · ${title} · ${i18n.t('timer.affirm')}`;
+      if (attackSide) {
+        str = `${i18n.t('timer.affirm')} · ${title} · ${i18n.t('timer.neg')}`;
+      } else {
+        str = `${i18n.t('timer.neg')} · ${title} · ${i18n.t('timer.affirm')}`;
+      }
     }
     useFreeTimer(time1, time2);
     setStartTimer(attack);
@@ -866,8 +872,12 @@ function dealOthers(data) {
   if (team[0] !== false) {
     $('#teamName-C').html(team[0]);
     $('#teamName-CC').html(team[1]);
-    if (team[0].length > 13) $('#teamName-C').attr('class', 'twoLine teamName teamNameC');
-    if (team[1].length > 13) $('#teamName-CC').attr('class', 'twoLine teamName teamNameCC');
+    if (team[0].length > 13) {
+      $('#teamName-C').attr('class', 'twoLine teamName teamNameC');
+    }
+    if (team[1].length > 13) {
+      $('#teamName-CC').attr('class', 'twoLine teamName teamNameCC');
+    }
   }
   if (title1[0] !== false) {
     $('#down-C').html(title1[0]);
@@ -897,7 +907,15 @@ function dealOthers(data) {
     if (color === 'true') {
       let colorCode = getQueryVariable('colorCode');
       colorCode = decodeURIComponent(colorCode).split('|');
-      const [title2, team1, match, round, bigTimer, timerZheng, timerFan] = colorCode;
+      const [
+        title2,
+        team1,
+        match,
+        round,
+        bigTimer,
+        timerZheng,
+        timerFan,
+      ] = colorCode;
       $('#title').css('color', match);
       $('#emptyRound').css('color', round);
       $('#status').css('color', round);
@@ -910,14 +928,13 @@ function dealOthers(data) {
       $('#CCTime1').css('color', timerFan);
     }
   }
-  console.log(getQueryVariable('bgUrl'));
   if (getQueryVariable('bgUrl') !== false) {
     const bgUrl = decodeURIComponent(getQueryVariable('bgUrl'));
     $('#main').css('background', `url(${bgUrl}) no-repeat`);
     $('#main').css('background-size', '100%');
   }
   if (getQueryVariable('font') !== false) {
-    const font = (getQueryVariable('font'));
+    const font = getQueryVariable('font');
     $('.bigTime').css('font-family', font);
     $('.CTime').css('font-family', font);
     $('.CCTime').css('font-family', font);
@@ -940,9 +957,6 @@ function dealOthers(data) {
 async function loadRule() {
   $('#load-font').hide();
   DOM.mainWrapper.focus();
-  DOM.mainWrapper.blur(() => {
-    $(this).focus();
-  });
   $('#custom').hide();
   if (getQueryVariable('rid') === false) {
     // eslint-disable-next-line no-alert
@@ -1055,7 +1069,8 @@ const documentReady = () => {
     Logger.debug(document);
     Logger.debug(window);
     const { userAgent } = navigator; // 取得浏览器的userAgent字符串
-    if (userAgent.indexOf('Firefox') > -1) { // 判断是否Firefox浏览器
+    if (userAgent.indexOf('Firefox') > -1) {
+      // 判断是否Firefox浏览器
       // eslint-disable-next-line no-alert
       alert('本计时器不支持火狐浏览器！！！务必换用其他浏览器！');
     }
@@ -1129,7 +1144,79 @@ export default {
   name: 'Show',
   setup() {
     const { isFullscreen } = useFullscreen();
-    return { isFullscreen };
+
+    let concatItem = ' : ';
+    if (getQueryVariable('font') !== false) {
+      const font = getQueryVariable('font');
+      switch (font) {
+        case 'ormont':
+          concatItem = ':';
+          break;
+        default:
+          concatItem = ' : ';
+      }
+    }
+
+    const vueBigTimerTime = ref(0);
+    const vueFTTP = ref(0);
+    const vueFTTN = ref(0);
+
+    setInterval(() => {
+      vueBigTimerTime.value = bigTimerTime;
+      const [pTime, nTime] = freeTimerTime;
+      vueFTTP.value = pTime;
+      vueFTTN.value = nTime;
+    }, 50);
+
+    const vueBigTimer = computed(() => {
+      let min; let sec;
+      min = Math.floor(vueBigTimerTime.value / 60);
+      sec = Math.floor(vueBigTimerTime.value - min * 60);
+      if (min < 10) min = `0${min}`;
+      if (sec < 10) sec = `0${sec}`;
+      const str = `${min}${concatItem}${sec}`;
+
+      if (vueBigTimerTime.value <= 30) {
+        $('#mainTimer').attr('class', 'bigTime danger-time-big');
+      } else $('#mainTimer').attr('class', 'bigTime');
+
+      return str;
+    });
+
+    const vuePositiveTimer = computed(() => {
+      let min; let sec;
+      min = Math.floor(vueFTTP.value / 60);
+      sec = Math.floor(vueFTTP.value - min * 60);
+      if (min < 10) min = `0${min}`;
+      if (sec < 10) sec = `0${sec}`;
+      const str = `${min}${concatItem}${sec}`;
+      if (vueFTTP.value <= 30) {
+        $('#CTime').attr('class', 'CTime danger-time-small');
+      } else $('#CTime').attr('class', 'CTime');
+
+      return str;
+    });
+
+    const vueNegTimer = computed(() => {
+      let min; let sec;
+      min = Math.floor(vueFTTN.value / 60);
+      sec = Math.floor(vueFTTN.value - min * 60);
+      if (min < 10) min = `0${min}`;
+      if (sec < 10) sec = `0${sec}`;
+      const str = `${min}${concatItem}${sec}`;
+      if (vueFTTN.value <= 30) {
+        $('#CCTime').attr('class', 'CCTime danger-time-small');
+      } else $('#CCTime').attr('class', 'CCTime');
+
+      return str;
+    });
+
+    return {
+      isFullscreen,
+      vue_bigTimer: vueBigTimer,
+      vue_positiveTimer: vuePositiveTimer,
+      vue_negTimer: vueNegTimer,
+    };
   },
   methods: {
     toggleFull() {
@@ -1213,11 +1300,13 @@ export default {
   overflow-y: hidden !important;
   padding: 8px;
 }
+
 .full {
   .mainWrapper {
     height: 100vh !important;
   }
 }
+
 .v-application {
   line-height: normal !important;
 }
