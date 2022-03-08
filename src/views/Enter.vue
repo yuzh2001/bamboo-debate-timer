@@ -391,28 +391,30 @@
       width="500"
     >
       <v-card>
-        <v-card-title class="text-h5 primary white--text">
-          重要提醒！
+        <v-card-title class="text-h5 error white--text">
+          重要提醒！就是说真的很重要！！
         </v-card-title>
 
         <v-card-text class="text-left">
-          <br>
-          重要提醒！<br>
-          为了计时器能够进一步发展，为大家提供更多功能，自1.28版本开始，我们将放弃对老旧的浏览器的支持。
-          它们包括但不限于 【IE浏览器任意版本】【Chrome54以下版本】等。 <br/>
-          如果很不幸你将要使用的浏览器符合上述描述，或者在实际测试中遇到了不能正常使用的情况：
-          1. 请使用一个停止更新的兼容版：
-          <v-btn href="https://legacy.timer.bianlun.online" color="primary" small>兼容版</v-btn>
-          <h3 class="red--text">2. 如果你对你将要使用计时器的电脑中浏览器环境不确定，强烈建议你申请离线版计时器。</h3>
+          &nbsp;&nbsp;&nbsp;&nbsp;由于之前在使用的服务商出现
+          了一个非常大的变动，导致如果我们继续使用，会产生高额成本、并且计时器会在一段时间内无法访问，我们不得不即将迁移后端的服务。<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;由于要进行全部的迁移，有一定概率服务出现错误等情况。<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;非常抱歉有可能给大家带来潜在的不便，我们会尽量确保不出现问题。
+          不过，迁移到新平台后，我们可以为大家提供一些更方便的功能，有一些工作也已经提上日程，敬请期待。<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;Online辩之竹计时器将在 2022年3月10日 凌晨1点前后 进行服务器迁移，请您届时不要使用计时器。
+          （不过不会真的有人凌晨一点还在打辩论吧 好好休息啊就是说）<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;如果您在迁移完成后发现遇到了一些问题，您可以随时联系我们：微信 yuzhuohao。<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;再次就此次迁移给您造成的不便致歉~
+          <br/> <h3>顺便，可以了解一下我们提供的离线版计时器（加群992868670）。不受网络、电脑束缚，一键启动，用了都说好，线下辩论你值得拥有。</h3>
         </v-card-text>
 
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            color="primary"
+            color="error"
             @click="crashDialog = false"
           >
-            我已了解【IE浏览器】已不再受支持
+            我已了解【3月10日凌晨】会进行服务器迁移
           </v-btn>
         </v-card-actions>
       </v-card>
