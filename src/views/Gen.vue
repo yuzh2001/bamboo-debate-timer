@@ -437,7 +437,6 @@
 import draggable from 'vuedraggable';
 import axios from 'axios';
 // import * as R from 'ramda';
-import AV from 'leancloud-storage';
 import {
   findIndex, propEq, insert, indexOf, reject, clone, find, isEmpty, equals,
 } from 'ramda';
@@ -842,32 +841,28 @@ export default {
       if (R.isEmpty(this.inheritCode)) {
         alert('您还没输入需要继承的计时码');
       } else {
-        const newTimer = new AV.Query('TimerRule');
-        newTimer.equalTo('timerId', parseInt(this.inheritCode, 10));
-        const res = await newTimer.first();
-        console.log(res);
-        if (res === undefined) {
-          alert('该计时码不存在');
-          return;
-        }
-        if (res.attributes.localStorage === '') {
+        if (parseInt(this.inheritCode, 10) <= 875) {
           alert('只有875以上的计时码才可以使用此功能');
           return;
         }
+        const db = this.$cloudbase.database();
+        const _ = db.command;
+        const newT = await db.collection('TimerRule').where({
+          timerId: _.eq(parseInt(this.inheritCode, 10)),
+        }).get();
 
-        // const url = `${process.env.VUE_APP_SER}/rule/detail/${this.inheritCode}`;
-        // const res = await axios.get(url);
-        // console.log(res, '不行', R.equals(res, '不行'));
-        // if (res.data === '不行') {
-        //   alert('只有875以上的计时码才可以使用此功能');
-        //   return;
-        // }
-        const { attributes: { localStorage: data1 } } = res;
+        if (newT.data.length === 0) {
+          alert('该计时码不存在');
+          return;
+        }
+        if (newT.data[0].localStorage === '') {
+          alert('只有875以上的计时码才可以使用此功能');
+          return;
+        }
+        const { localStorage: data1 } = newT.data[0];
         const data = JSON.parse(data1);
         sto.set(data);
         this.list2 = data;
-        console.log(data);
-        console.log(this.list2);
       }
     },
     async finish() {
@@ -897,7 +892,7 @@ export default {
         };
 
         // 向腾讯云开发同步
-        await this.$cloudbase.auth().anonymousAuthProvider().signIn();
+        // await this.$cloudbase.auth().anonymousAuthProvider().signIn();
 
         const tenRes = await this.$cloudbase
           .callFunction({

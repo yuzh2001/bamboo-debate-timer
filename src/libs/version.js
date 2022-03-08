@@ -1,6 +1,9 @@
-export const nowVersion = 'V1.32.220308';
-export const updateTime = '2022年1月27日';
-export const updateLogs = `# V1.32.220308
+export const nowVersion = 'V1.33.220309';
+export const updateTime = '2022年3月9日';
+export const updateLogs = `# V1.33.220309
+- 切换后端
+
+# V1.32.220308
 - 多语言繁体支持
 - 自定义响铃时间
 

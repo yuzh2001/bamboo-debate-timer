@@ -140,6 +140,7 @@ export default {
   watch: {
   },
   async mounted() {
+    await this.$cloudbase.auth().anonymousAuthProvider().signIn();
     // console.log(this.$route);
     if (process.env.NODE_ENV === 'production') {
       if (window) {
