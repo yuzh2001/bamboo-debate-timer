@@ -424,7 +424,7 @@
             color="error"
             @click="crashDialog = false"
           >
-            我已了解3月10日凌晨要迁移服务器
+            我已了解【3月10日凌晨】会进行服务器迁移
           </v-btn>
         </v-card-actions>
       </v-card>
