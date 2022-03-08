@@ -274,10 +274,10 @@ import { useFullscreen } from '@vueuse/core';
 import {
   computed, ref,
 } from '@vue/composition-api';
-import * as lc from 'leancloud-storage';
 import 'animate.css';
 import { replace } from 'lodash';
 
+import cloudbase from '@cloudbase/js-sdk';
 // eslint-disable-next-line import/extensions
 import offlineConfig from '@/libs/offlineConfig.js';
 import zh from '@/assets/lang/zh.json';
@@ -982,24 +982,41 @@ async function loadRule() {
   }
   const ridd = getQueryVariable('rid');
   Logger.debug(ridd);
-  const qr = new lc.Query('TimerRule');
+  const app = cloudbase.init({ env: 'bamboo-club-e0985c' });
+  await app.auth().anonymousAuthProvider().signIn();
+  const _ = app.database().command;
+  const timerRuleCo = app.database().collection('TimerRule');
+  let query = timerRuleCo.where({
+    timerId: _.eq(),
+  });
+
   if (parseInt(ridd, 10).toString() === ridd) {
-    qr.equalTo('timerId', parseInt(ridd, 10));
+    query = timerRuleCo.where({
+      timerId: _.eq(parseInt(ridd, 10)),
+    });
   } else {
-    qr.equalTo('name', decodeURIComponent(ridd));
+    query = timerRuleCo.where({
+      name: _.eq(decodeURIComponent(ridd)),
+    });
   }
+
   try {
-    const queryTimerRuleRes = await qr.find();
-    if (queryTimerRuleRes.length === 0) {
+    const tenRes = await query.get();
+    if (tenRes.data.length === 0) {
       res.battle.title = '看到这行字说明计时码错误，请检查';
       DOM.titleJ.html(res.battle.title);
       return;
     }
-    const { rule } = queryTimerRuleRes[0].attributes;
+    const { rule } = tenRes.data[0];
     dealOthers(rule);
-    const trInc = queryTimerRuleRes[0];
-    trInc.increment('useTimes', 1);
-    await trInc.save();
+
+    // eslint-disable-next-line no-underscore-dangle
+    const trId = tenRes.data[0]._id;
+    await app
+      .callFunction({
+        name: 'incTimerRuleUseTimes',
+        data: { _id: trId },
+      });
   } catch (e) {
     res.battle.title = '看到这行字说明出现网络问题或浏览器版本过旧，请检查';
     DOM.titleJ.html(res.battle.title);

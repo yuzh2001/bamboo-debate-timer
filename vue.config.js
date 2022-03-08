@@ -3,6 +3,7 @@ const Renderer = PrerenderSPAPlugin.PuppeteerRenderer;
 const path = require('path');
 
 module.exports = {
+  mode: 'development',
   devServer: {
     // host: '0.0.0.0', //host改成自己的IP
     // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#配置代理

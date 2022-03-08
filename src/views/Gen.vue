@@ -461,6 +461,7 @@ function S4() {
 function guid() {
   return `${S4() + S4()}-${S4()}-${S4()}-${S4()}-${S4()}${S4()}${S4()}`;
 }
+
 export default {
   name: 'Gen',
   metaInfo: {
@@ -886,31 +887,29 @@ export default {
         for (let i = 0; i < this.list2.length; i += 1) {
           ansTxt.push(this.list3[this.list2[i].id]);
         }
-
-        // const url = `${process.env.VUE_APP_SER}/rule`;
+        // 41ae62ef622700050b0e339b2be87a65
         const ruleLocalStorage = JSON.stringify(sto.get());
-        // const data = this.$qs.stringify({
-        //   rule: `${this.gameName}||${ansTxt.join(';')}`,
-        //   ruleLocalStorage,
-        // });
-
-        // 向leancloud同步
-        const TimerRule = AV.Object.extend('TimerRule');
-        const newTimer = new TimerRule();
-        newTimer.set({
+        const saveObject = {
           rule: `${this.gameName}||${ansTxt.join(';')}`,
           ruleName: this.gameName,
           localStorage: ruleLocalStorage,
           name: '',
-        });
-        await newTimer.save();
-        await newTimer.fetch();
-        // 向leancloud同步
+        };
 
-        this.code = newTimer.attributes.timerId;
+        // 向腾讯云开发同步
+        await this.$cloudbase.auth().anonymousAuthProvider().signIn();
+
+        const tenRes = await this.$cloudbase
+          .callFunction({
+            name: 'createTimerRule',
+            data: saveObject,
+          });
+
+        // this.code = newTimer.attributes.timerId;
+        this.code = tenRes.result.timerId;
         this.dialog = true;
         const tmpa = sto.g('his');
-        tmpa.push(newTimer.attributes.timerId);
+        tmpa.push(tenRes.result.timerId);
         sto.s('his', tmpa);
         this.isLoading = false;
       }

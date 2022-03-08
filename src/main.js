@@ -6,6 +6,8 @@ import vcolorpicker from 'vcolorpicker';
 import MetaInfo from 'vue-meta-info';
 import AV from 'leancloud-storage';
 import VueI18n from 'vue-i18n';
+
+import Cloudbase from '@cloudbase/vue-provider';
 import zh from '@/assets/lang/zh.json';
 // eslint-disable-next-line camelcase
 import zh_TW from '@/assets/lang/zh_TW.json';
@@ -44,6 +46,9 @@ Vue.use(VueI18n);
 Vue.use(vcolorpicker);
 Vue.use(VueTour, router);
 Vue.use(MetaInfo);
+Vue.use(Cloudbase, {
+  env: 'bamboo-club-e0985c',
+});
 const i18n = new VueI18n({
   locale: 'zh',
   messages: {

@@ -18,6 +18,7 @@
   "main": "background.js",
   "dependencies": {
     "@cloudbase/js-sdk": "^1.7.2",
+    "@cloudbase/vue-provider": "^0.5.2",
     "@mdi/font": "^6.5.95",
     "@vue/composition-api": "^1.4.1",
     "@vueuse/core": "^7.3.0",
