@@ -1,112 +1,112 @@
 {
   "app": {
     "electron": "特供版",
-    "slogan": "Online辩论，为线上辩论生态圈的改善而奋斗！"
+    "slogan": "Online辯論，爲線上辯論生態圈的改善而奮鬥！"
   },
   "card": {
     "action": {
       "cancel": "取消",
-      "delete": "删除",
-      "duplicate": "复制",
-      "edit": "编辑",
+      "delete": "刪除",
+      "duplicate": "複制",
+      "edit": "編輯",
       "finish": "完成"
     },
     "hint": {
-      "deleteHint": "确定要删除吗？",
-      "selectDefendPos": "您还未选择",
-      "selectDefendPos2": "受攻击的辩手辩位",
-      "selectDefendPos3": "，请您选择！"
+      "deleteHint": "確定要刪除嗎？",
+      "selectDefendPos": "您還未選擇",
+      "selectDefendPos2": "受攻擊的辯手辯位",
+      "selectDefendPos3": "，請您選擇！"
     },
     "str": {
-      "attackPos": "发起的辩手辩位",
-      "attackSide": "发起者",
-      "defendPos": "受攻击的辩手辩位",
-      "defendSide": "受攻击方",
-      "duration": "时间",
-      "roundTitle": "环节标题",
-      "roundType": "环节类别",
-      "timerCnt": "计时器数量"
+      "attackPos": "發起的辯手辯位",
+      "attackSide": "發起者",
+      "defendPos": "受攻擊的辯手辯位",
+      "defendSide": "受攻擊方",
+      "duration": "時間",
+      "roundTitle": "環節標題",
+      "roundType": "環節類別",
+      "timerCnt": "計時器數量"
     }
   },
   "const": {
-    "expand": "点我展开",
-    "timerCode": "计时码"
+    "expand": "點我展開",
+    "timerCode": "計時碼"
   },
   "enter": {
-    "additionalSetting": "额外设置(可选)",
+    "additionalSetting": "額外設置(可選)",
     "bookmark": {
-      "desc": "使用常用计时码的方法：先展开，然后选择所需，复制其计时码填入下方即可。<br/>提交常用计时码收录的问卷已经暂时停止收集，您可以转而申请离线版。",
-      "title": "常用计时码"
+      "desc": "使用常用計時碼的方法：先展開，然後選擇所需，複制其計時碼填入下方即可。<br/>提交常用計時碼收錄的問卷已經暫時停止收集，您可以轉而申請離線版。",
+      "title": "常用計時碼"
     },
     "codes": {
       "headers": {
-        "code": "计时码",
-        "name": "赛事名称"
+        "code": "計時碼",
+        "name": "賽事名稱"
       }
     },
     "enter": {
-      "title": "进入计时器"
+      "title": "進入計時器"
     },
     "form": {
-      "additional": "附加功能设置",
-      "backgroud": "背景和颜色设置",
+      "additional": "附加功能設置",
+      "backgroud": "背景和顔色設置",
       "new": "新",
-      "open": "立即打开",
-      "teamAndName": "队伍与辩题设置"
+      "open": "立即打開",
+      "teamAndName": "隊伍與辯題設置"
     },
-    "reachUs": "遇到了问题吗？",
+    "reachUs": "遇到了問題嗎？",
     "settings": {
-      "watermarkHint": "我们在计时器页面加入了计时器名称与链接的水印，我们希望你能够将其留下，让这款计时器有更多的人能看到并使用。\n      当然，如果你希望让界面更干净，你也完全可以在这里把它关闭。(大型比赛的话其实也建议关闭水印，让计时更纯粹)选择权在你，无论你做什么选择，祝你使用愉快~"
+      "watermarkHint": "我們在計時器頁面加入了計時器名稱與鏈接的水印，我們希望你能夠將其留下，讓這款計時器有更多的人能看到並使用。\n      當然，如果你希望讓界面更幹淨，你也完全可以在這裏把它關閉。(大型比賽的話其實也建議關閉水印，讓計時更純粹)選擇權在你，無論你做什麽選擇，祝你使用愉快~"
     },
-    "timerCodeWarn": "请点击↑输入计时码",
+    "timerCodeWarn": "請點擊↑輸入計時碼",
     "updateLog": "更新日志"
   },
   "footbar": {
-    "title": "Online辩论-辩之竹辩论计时器"
+    "title": "Online辯論-辯之竹辯論計時器"
   },
   "navbar": {
-    "blog": "看看开发者的博客",
-    "feedback": "反馈bug/提出建议",
-    "header": "Online-辩之竹计时器",
+    "blog": "看看開發者的博客",
+    "feedback": "反饋bug/提出建議",
+    "header": "Online-辯之竹計時器",
     "navs": {
-      "enter": "【进入计时器】",
-      "gen": "【生成计时码】"
+      "enter": "【進入計時器】",
+      "gen": "【生成計時碼】"
     },
-    "qqGroup": "加入Online辩论·辩论咨讯群"
+    "qqGroup": "加入Online辯論·辯論咨訊群"
   },
   "timer": {
     "ad": {
-      "1l": "Online辩论 · 辩之竹计时器",
-      "2l": "微信公众号搜索：Online辩论",
+      "1l": "Online辯論 · 辯之竹計時器",
+      "2l": "微信公衆號搜索：Online辯論",
       "3l": "timer.bianlun.online"
     },
     "affirm": "正方",
     "card": {
       "default": {
         "props": {
-          "affText": "正方时间",
-          "negText": "反方时间"
+          "affText": "正方時間",
+          "negText": "反方時間"
         },
-        "title": "开篇立论"
+        "title": "開篇立論"
       },
-      "dualSide": "双计时器",
-      "singleSide": "单计时器"
+      "dualSide": "雙計時器",
+      "singleSide": "單計時器"
     },
     "cate": {
-      "bitalk": "对辩",
+      "bitalk": "對辯",
       "blank": "空白",
-      "custom": "自定义",
+      "custom": "自定義",
       "free": "自由",
-      "question": "质询",
-      "statement": "陈词"
+      "question": "質詢",
+      "statement": "陳詞"
     },
     "neg": "反方",
     "pos": {
-      "all": "全体/任一",
-      "n1": "一辩",
-      "n2": "二辩",
-      "n3": "三辩",
-      "n4": "四辩",
+      "all": "全體/任一",
+      "n1": "一辯",
+      "n2": "二辯",
+      "n3": "三辯",
+      "n4": "四辯",
       "undefined": "未指定"
     },
     "side": {
@@ -116,16 +116,16 @@
       "aff": "正",
       "closeFull": "退出全屏",
       "neg": "反",
-      "openFull": "进入全屏",
-      "pause": "暂停",
-      "reset": "重置时间",
-      "return": "返回配置页",
-      "start": "开始",
-      "stopBoth": "停止双方计时",
-      "switch": "切换",
+      "openFull": "進入全屏",
+      "pause": "暫停",
+      "reset": "重置時間",
+      "return": "返回配置頁",
+      "start": "開始",
+      "stopBoth": "停止雙方計時",
+      "switch": "切換",
       "timer": {
-        "aff": "正方时间",
-        "neg": "反方时间"
+        "aff": "正方時間",
+        "neg": "反方時間"
       }
     }
   }

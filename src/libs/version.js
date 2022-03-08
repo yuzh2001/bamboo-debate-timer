@@ -1,6 +1,10 @@
-export const nowVersion = 'V1.31.220127';
+export const nowVersion = 'V1.32.220308';
 export const updateTime = '2022年1月27日';
-export const updateLogs = `# V1.31.220127
+export const updateLogs = `# V1.32.220308
+- 多语言繁体支持
+- 自定义响铃时间
+
+# V1.31.220127
 - 修复了多个影响性能的问题，大大提高了计时器计时稳定性
 - 修复了鼠标空格混用时出现的问题
 

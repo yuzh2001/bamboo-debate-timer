@@ -1,11 +1,11 @@
 <template>
-$END$
+ <div></div>
 </template>
 
 <script>
 export default {
-name: "PopularCodeCard"
-}
+  name: 'PopularCodeCard',
+};
 </script>
 
 <style scoped>

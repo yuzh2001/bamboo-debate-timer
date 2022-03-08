@@ -7,6 +7,8 @@ import MetaInfo from 'vue-meta-info';
 import AV from 'leancloud-storage';
 import VueI18n from 'vue-i18n';
 import zh from '@/assets/lang/zh.json';
+// eslint-disable-next-line camelcase
+import zh_TW from '@/assets/lang/zh_TW.json';
 import en from '@/assets/lang/en.json';
 import App from './App.vue';
 import vuetify from './plugins/vuetify';
@@ -46,6 +48,7 @@ const i18n = new VueI18n({
   locale: 'zh',
   messages: {
     zh,
+    zh_TW,
     en,
   },
 });

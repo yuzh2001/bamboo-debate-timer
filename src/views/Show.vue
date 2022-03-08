@@ -130,7 +130,7 @@
               id="btn-method-start"
               class="btn btn-success btn-lg"
             >
-              开始
+              {{ $t('timer.ui.start') }}
             </span>
           </div>
           <div
@@ -276,11 +276,14 @@ import {
 } from '@vue/composition-api';
 import * as lc from 'leancloud-storage';
 import 'animate.css';
+import { replace } from 'lodash';
 
 // eslint-disable-next-line import/extensions
 import offlineConfig from '@/libs/offlineConfig.js';
 import zh from '@/assets/lang/zh.json';
 import en from '@/assets/lang/en.json';
+// eslint-disable-next-line camelcase
+import zh_TW from '@/assets/lang/zh_TW.json';
 
 const { toggle } = useFullscreen();
 
@@ -296,13 +299,6 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 let link = document.createElement('link');
-link.rel = 'preload';
-link.crossOrigin = true;
-link.as = 'font';
-link.href = 'https://cdn.puluter.cn/bamboo-cqu2019_font1.otf';
-document.head.appendChild(link);
-
-link = document.createElement('link');
 link.rel = 'preload';
 link.crossOrigin = true;
 link.as = 'font';
@@ -322,8 +318,14 @@ const i18n = new VueI18n({
   messages: {
     zh,
     en,
+    zh_TW,
   },
 });
+
+const ringBellTime = {
+  first: 30,
+  second: 0,
+};
 
 const electronRules = [offlineConfig.rules];
 
@@ -438,8 +440,12 @@ const accurateInterval = function (fn, time) {
   };
 };
 
-function changeTitle(str) {
-  $('#status').html(str);
+function changeTitle(strr) {
+  const { locale } = i18n;
+  const isTw = locale === 'zh_TW';
+  let str1 = strr;
+  if (isTw) str1 = replace(strr, /辩/g, '辯');
+  $('#status').html(str1);
 }
 
 function checkTimer() {
@@ -470,7 +476,7 @@ function stopBigTimer() {
 let bigCanPlay = true;
 
 function bigTimerDecline() {
-  if (Math.abs(bigTimerTime - 30) <= 0.2 && bigCanPlay) {
+  if (Math.abs(bigTimerTime - ringBellTime.first) <= 0.2 && bigCanPlay) {
     playSound(2);
     bigCanPlay = false;
     setTimeout(() => {
@@ -509,7 +515,7 @@ function stopCTimer() {
 }
 
 function CTimerDecline() {
-  if (Math.abs(freeTimerTime[1] - 30) <= 0.2 && canPlayFree[0]) {
+  if (Math.abs(freeTimerTime[1] - ringBellTime.first) <= 0.2 && canPlayFree[0]) {
     playSound(2);
     canPlayFree[0] = false;
     setTimeout(() => {
@@ -559,7 +565,7 @@ function stopCCTimer() {
 }
 
 function CCTimerDecline() {
-  if (Math.abs(freeTimerTime[0] - 30) <= 0.1 && canPlayFree[1]) {
+  if (Math.abs(freeTimerTime[0] - ringBellTime.first) <= 0.1 && canPlayFree[1]) {
     playSound(2);
     canPlayFree[1] = false;
     setTimeout(() => {
@@ -1041,6 +1047,18 @@ function loadCss() {
   document.head.appendChild(css);
 }
 
+function loadFont() {
+  const { locale } = i18n;
+  const isTw = locale === 'zh_TW';
+  const onOffSig = isElectron ? 'off' : 'on';
+  const css = document.createElement('link');
+  css.href = `../assets/fonts/${`${isTw ? 'tw' : 'cn'}-${onOffSig}`}.css`;
+  css.id = 'cssFont';
+  css.rel = 'stylesheet';
+  css.type = 'text/css';
+  document.head.appendChild(css);
+}
+
 let isElectron = false;
 
 function changeRatio() {
@@ -1134,6 +1152,7 @@ const documentReady = () => {
     for (let i = 0; i < ruleArr.length; i += 1) {
       rules[i] = ruleArr[i].split(',');
     }
+    loadFont();
     changeStatusTo(0);
     accurateInterval(checkTimer, 100);
     loadRule();
@@ -1156,6 +1175,10 @@ export default {
           concatItem = ' : ';
       }
     }
+    if (getQueryVariable('ringBellTime') !== false) {
+      const ringBell = getQueryVariable('ringBellTime');
+      ringBellTime.first = ringBell;
+    }
 
     const vueBigTimerTime = ref(0);
     const vueFTTP = ref(0);
@@ -1176,7 +1199,7 @@ export default {
       if (sec < 10) sec = `0${sec}`;
       const str = `${min}${concatItem}${sec}`;
 
-      if (vueBigTimerTime.value <= 30) {
+      if (vueBigTimerTime.value <= ringBellTime.first) {
         $('#mainTimer').attr('class', 'bigTime danger-time-big');
       } else $('#mainTimer').attr('class', 'bigTime');
 
@@ -1190,7 +1213,7 @@ export default {
       if (min < 10) min = `0${min}`;
       if (sec < 10) sec = `0${sec}`;
       const str = `${min}${concatItem}${sec}`;
-      if (vueFTTP.value <= 30) {
+      if (vueFTTP.value <= ringBellTime.first) {
         $('#CTime').attr('class', 'CTime danger-time-small');
       } else $('#CTime').attr('class', 'CTime');
 
@@ -1204,7 +1227,7 @@ export default {
       if (min < 10) min = `0${min}`;
       if (sec < 10) sec = `0${sec}`;
       const str = `${min}${concatItem}${sec}`;
-      if (vueFTTN.value <= 30) {
+      if (vueFTTN.value <= ringBellTime.first) {
         $('#CCTime').attr('class', 'CCTime danger-time-small');
       } else $('#CCTime').attr('class', 'CCTime');
 
